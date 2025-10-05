@@ -1,0 +1,61 @@
+.mainColor {
+    color: #212936;
+}
+
+.mainBgColor {
+    background-color: #212936;
+}
+
+body {
+    background-color: #F3F4F6;
+    padding-bottom: 30px;
+}
+
+.tableComon tr {
+    height: 45px;
+    vertical-align: middle;
+
+}
+
+.tableComon * {
+    font-size: 14px
+}
+
+p,a{
+    font-size: 14px !important;
+}
+
+p{
+    margin-bottom: 0;
+}
+
+.letraPeq{
+    font-size: 14px;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.selectizeSearch{
+    width: 100%;
+}
+
+.option{
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+
+.selectize-input{
+    box-shadow: none;
+    border-radius: 5px;
+    height: 38px;
+}
+
+.selectizeSearchBig .selectize-input{
+    font-size: 1rem;
+    height: 58px;
+    display: flex;
+    align-items: center;
+}
