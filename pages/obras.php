@@ -5,6 +5,10 @@ include "../conexion.php";
 
 require_once "../authCookieSessionValidate.php";
 
+// Initialize filter variables
+$f_id_empresa = isset($_GET['id_empresa']) ? $_GET['id_empresa'] : '';
+$f_id_estado = isset($_GET['id_estado']) ? $_GET['id_estado'] : '';
+$f_id_contacto = isset($_GET['id_contacto']) ? $_GET['id_contacto'] : '';
 
 ?>
 <html lang="es">
@@ -141,6 +145,8 @@ require_once "../authCookieSessionValidate.php";
                 }
 
                 $id_presupuesto = "";
+                $countSubpartidasTotal = 0;
+                $countSubpartidasCheckedTotal = 0;
 
                 $c4 = $mysqli->query("SELECT * FROM presupuestos where id_obra=$id_obra");
                 while ($row = $c4->fetch_assoc()) {

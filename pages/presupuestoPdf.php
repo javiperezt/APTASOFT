@@ -198,8 +198,8 @@ while ($row = $c2->fetch_assoc()) {
                             <td class="fw-bold"><?= $partida; ?></td>
                             <td class="fw-bold"><?= $unidad; ?></td>
                             <td class="fw-bold"><?= $cantidad; ?></td>
-                            <td class="fw-bold"><?= round($subtotal, 2); ?>€</td>
-                            <td class="fw-bold"><?= round($subtotal_x_cantidad, 2); ?>€</td>
+                            <td class="fw-bold"><?= formatCurrency($subtotal); ?></td>
+                            <td class="fw-bold"><?= formatCurrency($subtotal_x_cantidad); ?></td>
                         </tr>
                         <tr>
                             <td colspan="9"><?= $descripcion ? "$descripcion" : "-"; ?></td>
@@ -215,7 +215,7 @@ while ($row = $c2->fetch_assoc()) {
             <div class="d-flex align-items-center justify-content-between gap-4 text-nowrap mt-3">
                 <p class="text-uppercase letraPeq">TOTAL CAPÍTULO <?= $n_capitulo; ?> <?= $capitulo; ?> </p>
                 <hr class="m-0 mb-1 align-self-end" width="100%"/>
-                <p class="letraPeq"><?= round($subtotal_capitulo, 2); ?>€</p>
+                <p class="letraPeq"><?= formatCurrency($subtotal_capitulo); ?></p>
             </div>
 
             <div class="d-flex justify-content-between align-items-center" style="margin-top: 1000px">
@@ -297,20 +297,20 @@ while ($row = $c2->fetch_assoc()) {
 
                 $getTotalPresupuesto = mysqli_query($mysqli, "SELECT SUM(subtotal*cantidad) AS totalPresupuesto FROM presupuestos_partidas where id_presupuesto='$id_presupuesto'");
                 $result = mysqli_fetch_assoc($getTotalPresupuesto);
-                $totalPresupuesto = round($result['totalPresupuesto'], 2);
+                $totalPresupuesto = round($result['totalPresupuesto'] ?? 0, 2);
 
                 ?>
                 <tr>
                     <td><?= $n_capitulo; ?></td>
                     <td><?= $capitulo; ?></td>
-                    <td><?= round($subtotal_capitulo, 2); ?>€</td>
+                    <td><?= formatCurrency($subtotal_capitulo); ?></td>
                 </tr>
                 <?php
             }
             ?>
             <tr>
                 <td colspan="2" class="fw-bold">IMPORTE PRESUPUESTO</td>
-                <td class="fw-bold"><?= $totalPresupuesto; ?>€</td>
+                <td class="fw-bold"><?= formatCurrency($totalPresupuesto); ?></td>
             </tr>
             </tbody>
         </table>

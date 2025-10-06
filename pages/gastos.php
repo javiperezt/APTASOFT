@@ -95,12 +95,12 @@ require_once "../authCookieSessionValidate.php";
                 // subtotal gastos
                 $q = mysqli_query($mysqli, "SELECT SUM(subtotal) AS x FROM gastos_lineas where id_gasto='$id_gasto'");
                 $result = mysqli_fetch_assoc($q);
-                $subtotal = round($result['x'], 2);
+                $subtotal = round($result['x'] ?? 0, 2);
 
                 // total gastos
                 $q = mysqli_query($mysqli, "SELECT SUM(total) AS x FROM gastos_lineas where id_gasto='$id_gasto'");
                 $result = mysqli_fetch_assoc($q);
-                $total = round($result['x'], 2);
+                $total = round($result['x'] ?? 0, 2);
 
                 if ($id_contacto) {
                     $c1 = $mysqli->query("SELECT * FROM contactos where id=$id_contacto");

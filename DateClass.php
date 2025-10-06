@@ -11,7 +11,7 @@ class DateClass
 
     public function getCurrentUnix()
     {
-        $var1 = new DateTime(null, new DateTimeZone('Europe/Madrid'));
+        $var1 = new DateTime('now', new DateTimeZone('Europe/Madrid'));
         $unixTime = $var1->getTimestamp();
         return $unixTime;
     }

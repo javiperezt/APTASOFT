@@ -44,7 +44,7 @@ while ($row = $c0->fetch_assoc()) {
 
     $q = mysqli_query($mysqli, "SELECT SUM(cantidad_certificada) AS x FROM certificaciones_partidas where  id_capitulo=$id_capitulo  and id_certificacion=$id_certificacion");
     $result = mysqli_fetch_assoc($q);
-    $cantidadCertificadaCapitulo = round($result['x'], 2);
+    $cantidadCertificadaCapitulo = round($result['x'] ?? 0, 2);
 
     if ($cantidadCertificadaCapitulo == 0) {
         $sql23 = "DELETE FROM facturas_capitulos where id_factura=$id_factura and id_capitulo=$id_capitulo";

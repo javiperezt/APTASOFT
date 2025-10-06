@@ -6,7 +6,7 @@
             $s_ID_EMPRESA = $row['id'];
             $s_EMPRESA = $row['empresa'];
             $checked = "";
-            if ($f_id_empresa == $s_ID_EMPRESA) {
+            if (isset($f_id_empresa) && $f_id_empresa == $s_ID_EMPRESA) {
                 $checked = "checked";
             }
 

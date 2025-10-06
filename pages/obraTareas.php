@@ -118,8 +118,9 @@ $today = $dateClass->getFormatedDate($today, "Y-m-d");
                     // para hacer la equivalencia por ejemplo de 2.50 a 2:30h
                     $horas = "$cantidad_presupuesto";
                     $horas = str_replace(".", ",", $horas);
-                    list($horas, $minutos) = explode(",", $horas);
-                    $minutos = round($minutos * 0.6);
+                    $partes = explode(",", $horas);
+                    $horas = $partes[0];
+                    $minutos = isset($partes[1]) ? round($partes[1] * 0.6) : 0;
                 }
 
 

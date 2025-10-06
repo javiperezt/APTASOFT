@@ -30,7 +30,7 @@
                                 $s_id_contacto = $row['id'];
                                 $nombre = $row['nombre'];
                                 $selected="";
-                                if($id_contacto_obra == $s_id_contacto){
+                                if(isset($id_contacto_obra) && $id_contacto_obra == $s_id_contacto){
                                     $selected="selected";
                                 }
                                 echo "<option $selected value='$s_id_contacto'>$nombre</option>";
@@ -47,7 +47,7 @@
                                 $s_id_obra = $row['id'];
                                 $titulo_obra = $row['titulo'];
                                 $selected="";
-                                if($id_obra == $s_id_obra){
+                                if(isset($id_obra) && $id_obra == $s_id_obra){
                                     $selected="selected";
                                 }
                                 echo "<option $selected value='$s_id_obra'>$titulo_obra</option>";
@@ -64,7 +64,7 @@
                                 $s_id_empresa = $row['id'];
                                 $empresa = $row['empresa'];
                                 $selected="";
-                                if($id_empresa_obra == $s_id_empresa){
+                                if(isset($id_empresa_obra) && $id_empresa_obra == $s_id_empresa){
                                     $selected="selected";
                                 }
                                 echo "<option $selected value='$s_id_empresa'>$empresa</option>";

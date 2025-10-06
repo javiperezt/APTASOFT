@@ -8,7 +8,7 @@ class Presupuestos
     {
         $q = mysqli_query($mysqli, "SELECT SUM(cantidad*total) AS x FROM presupuestos_partidas where id_presupuesto='$id_presupuesto'");
         $result = mysqli_fetch_assoc($q);
-        $var = round($result['x'], 2);
+        $var = round($result['x'] ?? 0, 2);
         return $var;
     }
 
@@ -16,7 +16,7 @@ class Presupuestos
     {
         $q = mysqli_query($mysqli, "SELECT SUM(cantidad*subtotal) AS x FROM presupuestos_partidas where id_presupuesto='$id_presupuesto'");
         $result = mysqli_fetch_assoc($q);
-        $var = round($result['x'], 2);
+        $var = round($result['x'] ?? 0, 2);
         return $var;
     }
 

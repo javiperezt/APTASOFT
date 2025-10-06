@@ -1,0 +1,227 @@
+---
+alwaysApply: true
+---
+# ESTRUCTURA DE DIRECTORIOS DEL PROYECTO
+
+## 📁 Árbol de Directorios
+
+```
+/
+├── pages/                          # Páginas principales (vistas HTML/PHP)
+│   ├── inicio_dashboard.php       # Dashboard principal
+│   ├── obras.php                  # Listado de obras
+│   ├── obraDetail.php             # Detalle de una obra
+│   ├── obraManoObra.php          # Seguimiento mano de obra
+│   ├── obraMaterial.php          # Seguimiento material
+│   ├── obraExternos.php          # Seguimiento externos
+│   ├── obraArchivos.php          # Gestión de archivos
+│   ├── presupuestos.php          # Listado de presupuestos
+│   ├── presupuestoDetail.php     # Detalle de presupuesto
+│   ├── facturas.php              # Listado de facturas
+│   ├── facturaDetail.php         # Detalle de factura
+│   ├── gastos.php                # Listado de gastos
+│   ├── gastoDetail.php           # Detalle de gasto
+│   ├── empleados.php             # Listado de empleados
+│   ├── contactos.php             # Listado de contactos
+│   └── ...
+│
+├── backend/                       # Lógica de negocio (procesamiento)
+│   ├── obras/
+│   │   ├── obraCreate.php        # Crear nueva obra
+│   │   ├── obraUpdate.php        # Actualizar obra
+│   │   ├── obraDelete.php        # Eliminar obra
+│   │   ├── obraAddParte.php      # Añadir parte de trabajo
+│   │   └── certificacionFacturar.php
+│   │
+│   ├── presupuestos/
+│   │   ├── presupuestoCreate.php
+│   │   ├── presupuestoUpdate.php
+│   │   └── presupuestoDelete.php
+│   │
+│   ├── facturas/
+│   │   ├── facturaCreate.php
+│   │   ├── facturaUpdate.php
+│   │   ├── facturaPagoAdd.php
+│   │   └── facturaPagoDelete.php
+│   │
+│   ├── gastos/
+│   │   ├── gastoCreate.php
+│   │   ├── gastoUpdate.php
+│   │   ├── gastoUploadDocs.php   # Subir documentos
+│   │   ├── gastoDeleteDoc.php    # Eliminar documento
+│   │   └── gastoPagoAdd.php
+│   │
+│   ├── empleados/
+│   ├── contactos/
+│   └── calendario/
+│       ├── addEvent.php
+│       └── get-events.php
+│
+├── components/                    # Componentes reutilizables PHP
+│   ├── navbar.php                # Barra de navegación
+│   ├── modals/                   # Modales Bootstrap
+│   │   ├── obraNew.php
+│   │   ├── obraDelete.php
+│   │   ├── facturaNew.php
+│   │   └── ...
+│   │
+│   ├── obras/                    # Componentes específicos de obras
+│   │   ├── obraLine.php         # Línea de tabla de obra
+│   │   ├── certificacionLine.php
+│   │   └── navObra.php
+│   │
+│   ├── facturas/
+│   │   ├── facturaLine.php
+│   │   ├── facturaPartidaLine.php
+│   │   └── facturaPagoLine.php
+│   │
+│   ├── gastos/
+│   │   ├── gastoLine.php
+│   │   └── gastoDocLine.php
+│   │
+│   └── noDataLine.php           # Mensaje "sin datos"
+│
+├── docs/                         # Documentos subidos
+│   ├── obras/
+│   │   └── {id_obra}/           # Documentos por obra
+│   │       ├── archivo1.pdf
+│   │       └── archivo2.jpg
+│   │
+│   ├── gastos/
+│   │   └── {id_gasto}/          # Facturas recibidas
+│   │       └── factura.pdf
+│   │
+│   └── facturas/                # Facturas emitidas
+│
+├── css/                          # Estilos personalizados
+│   └── style.css                # CSS custom (mínimo)
+│
+├── js/                           # JavaScript vanilla
+│   ├── main.js
+│   └── calendar.js
+│
+├── img/                          # Imágenes y recursos
+│   ├── logoApta.png
+│   ├── logoSirecons.jpg
+│   └── logoEpicas.png
+│
+├── conexion.php                  # ⭐ Conexión a MySQL
+├── authCookieSessionValidate.php # ⭐ Validación de autenticación
+├── links_header.php              # ⭐ Links comunes (Bootstrap, CSS, JS)
+├── ConsecutiveNumbers.php        # Clase para numeración automática
+└── index.php                     # Login
+```
+
+---
+
+## 📋 CONVENCIONES DE NOMBRES
+
+### Archivos en pages/
+- **Formato:** `camelCase.php`
+- **Ejemplos:** `obraDetail.php`, `facturaDetail.php`, `inicio_dashboard.php`
+- **Función:** Páginas completas con HTML que el usuario ve
+
+### Archivos en backend/
+- **Formato:** `moduloAccion.php`
+- **Ejemplos:** `obraCreate.php`, `facturaUpdate.php`, `gastoDelete.php`
+- **Función:** Procesan datos (INSERT, UPDATE, DELETE) y redirigen
+- **NO devuelven HTML**, solo lógica de negocio
+
+### Archivos en components/
+- **Formato:** `moduloComponente.php`
+- **Ejemplos:** `obraLine.php`, `facturaNew.php`
+- **Función:** Fragmentos HTML reutilizables que se incluyen en páginas
+
+---
+
+## 🔄 FLUJO DE TRABAJO
+
+### 1. Usuario accede a una página
+```
+Usuario → pages/obraDetail.php
+```
+
+### 2. Página carga datos y componentes
+```php
+<?php
+session_start();
+include "../conexion.php";               // ⭐ Conexión BD
+require_once "../authCookieSessionValidate.php"; // ⭐ Autenticación
+?>
+<html>
+<head>
+    <?php include "../links_header.php"; ?> <!-- ⭐ Bootstrap, CSS, JS -->
+</head>
+<body>
+<?php include "../components/navbar.php"; ?> <!-- Navegación -->
+
+</body>
+</html>
+```
+
+---
+
+## 📍 RUTAS IMPORTANTES
+
+### Rutas relativas desde pages/
+```php
+include "../conexion.php";                    // Conexión
+include "../components/navbar.php";           // Componente
+include "../links_header.php";                // Links
+```
+
+### Rutas relativas desde backend/
+```php
+include "../../conexion.php";                 // Conexión
+```
+
+---
+
+## 🎯 ARCHIVOS CLAVE DEL SISTEMA
+
+### 1. conexion.php
+```php
+// Establece la variable global $mysqli
+// Usado en TODAS las páginas y backend
+```
+
+### 2. authCookieSessionValidate.php
+```php
+// Valida si el usuario está autenticado
+// Establece la variable $isLoggedIn
+```
+
+### 3. links_header.php
+```php
+// Incluye todos los CSS y JS necesarios:
+// - Bootstrap 5
+// - Bootstrap Icons
+// - Estilos custom
+```
+
+### 4. ConsecutiveNumbers.php
+```php
+// Clase para generar números consecutivos
+// Usado en presupuestos (E240001) y facturas (F240001)
+```
+
+---
+
+## 🚫 QUÉ NO HACER
+
+❌ **NO crear páginas fuera de pages/**
+❌ **NO poner lógica de negocio en pages/** (solo vistas)
+❌ **NO poner HTML en backend/** (solo procesamiento)
+❌ **NO hardcodear rutas absolutas**
+❌ **NO crear subdirectorios personalizados** sin consultar la estructura
+
+---
+
+## ✅ QUÉ SÍ HACER
+
+✅ **Respetar la estructura de carpetas**
+✅ **Usar rutas relativas correctas**
+✅ **Separar vistas (pages) de lógica (backend)**
+✅ **Reutilizar componentes de components/**
+✅ **Seguir el patrón de nombrado establecido**
+✅ **Incluir siempre conexion.php y authCookieSessionValidate.php en páginas**

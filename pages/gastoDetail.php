@@ -34,23 +34,23 @@ while ($row = $c1->fetch_assoc()) {
 //Calculamos totales y subtotales de todas las lineas de gasto
 $getSubtotalGastoGeneral = mysqli_query($mysqli, "SELECT SUM(subtotal) AS subtotalGastoGeneral FROM gastos_lineas where id_gasto='$id_gasto'");
 $result = mysqli_fetch_assoc($getSubtotalGastoGeneral);
-$subtotalGastoGeneral = $result['subtotalGastoGeneral'];
+$subtotalGastoGeneral = $result['subtotalGastoGeneral'] ?? 0;
 
 $getTotalGastoGeneral = mysqli_query($mysqli, "SELECT SUM(total) AS totalGastoGeneral FROM gastos_lineas where id_gasto='$id_gasto'");
 $result = mysqli_fetch_assoc($getTotalGastoGeneral);
-$totalGastoGeneral = $result['totalGastoGeneral'];
+$totalGastoGeneral = $result['totalGastoGeneral'] ?? 0;
 
 //para saber cantidad descontada
 $getImporteSinDescuento = mysqli_query($mysqli, "SELECT SUM(cantidad*precio) AS importeSinDescuento FROM gastos_lineas where id_gasto='$id_gasto'");
 $result = mysqli_fetch_assoc($getImporteSinDescuento);
-$importeSinDescuento = $result['importeSinDescuento'];
+$importeSinDescuento = $result['importeSinDescuento'] ?? 0;
 
 $dto = $importeSinDescuento - $subtotalGastoGeneral;
 
 
 $getTotalPagado = mysqli_query($mysqli, "SELECT SUM(importe) AS x FROM gastos_pagos where estado='pagado' and id_gasto=$id_gasto");
 $result = mysqli_fetch_assoc($getTotalPagado);
-$totalPagado = $result['x'];
+$totalPagado = $result['x'] ?? 0;
 ?>
 <html lang="es">
 <head>
@@ -290,7 +290,7 @@ $totalPagado = $result['x'];
         while ($row = $c3->fetch_assoc()) {
             $id_gasto_linea = $row['id'];
             $id_presupuestos_partidas = $row['id_presupuestos_partidas'];
-            $id_capitulo_presupuesto = $row['id_capitulo_presupuesto'];
+            $id_capitulo_presupuesto = $row['id_capitulo_presupuesto'] ?? null;
             $id_iva = $row['id_iva'];
             $concepto = $row['concepto'];
             $descripcion = $row['descripcion'];
@@ -322,7 +322,7 @@ $totalPagado = $result['x'];
                 <div id="pagos2" class="d-flex align-items-center gap-4">
                     <p class="text-success"><span class="text-black">Pagado:</span> <?= $totalPagado; ?>€</p>
                     <p class="text-danger"><span
-                                class="text-black">Pendiente:</span> <?= round($totalGastoGeneral - $totalPagado, 2); ?>
+                                class="text-black">Pendiente:</span> <?= round(($totalGastoGeneral ?? 0) - ($totalPagado ?? 0), 2); ?>
                         €</p>
                 </div>
             </div>
@@ -391,24 +391,24 @@ $totalPagado = $result['x'];
 <div id="result" class="container-md my-3">
     <div class="d-flex gap-4 bg-white p-4 rounded-3 ms-auto" style="width: fit-content">
         <div>
-            <p class="fs-3 text-black fw-bold"><?= $subtotalGastoGeneral; ?>€</p>
+            <p class="fs-3 text-black fw-bold" id="resumenSubtotal"><?= formatCurrency($subtotalGastoGeneral); ?></p>
             <p class="letraPeq" style="color: #AEAEAE">Subtotal</p>
         </div>
         <div>
-            <p class="fs-3 text-black fw-bold"><?= $dto; ?>€</p>
+            <p class="fs-3 text-black fw-bold" id="resumenDto"><?= formatCurrency($dto); ?></p>
             <p class="letraPeq" style="color: #AEAEAE">Dto</p>
         </div>
         <div>
-            <p class="fs-3 text-black fw-bold"><?= $totalGastoGeneral - $subtotalGastoGeneral; ?>€</p>
+            <p class="fs-3 text-black fw-bold" id="resumenIva"><?= formatCurrency($totalGastoGeneral - $subtotalGastoGeneral); ?></p>
             <p class="letraPeq" style="color: #AEAEAE">IVA</p>
         </div>
         <div>
-            <?php $retencionResult = round($subtotalGastoGeneral * $retencion / 100, 2); ?>
-            <p class="fs-3 text-black fw-bold"><?= $retencionResult; ?>€</p>
+            <?php $retencionResult = round(($subtotalGastoGeneral ?? 0) * ($retencion ?? 0) / 100, 2); ?>
+            <p class="fs-3 text-black fw-bold" id="resumenRetencion" data-retencion="<?= $retencion; ?>"><?= formatCurrency($retencionResult); ?></p>
             <p class="letraPeq" style="color: #AEAEAE">Retención</p>
         </div>
         <div>
-            <p class="fs-3 text-black fw-bold"><?= $totalGastoGeneral - $retencionResult; ?>€</p>
+            <p class="fs-3 text-black fw-bold" id="resumenTotal"><?= formatCurrency($totalGastoGeneral - $retencionResult); ?></p>
             <p class="letraPeq" style="color: #AEAEAE">Total</p>
         </div>
     </div>
@@ -430,6 +430,7 @@ $totalPagado = $result['x'];
 <script src="../js/selectizeFunction.js"></script>
 <script src="../js/datePicker.js"></script>
 <script src="../js/updateConfirmation.js"></script>
+<script src="../js/formatNumbers.js"></script>
 
 <script>
 
@@ -469,8 +470,6 @@ $totalPagado = $result['x'];
         }).done(function () {
             if (columna == "cantidad" || columna == "precio" || columna == "id_iva" || columna == "descuento") {
                 calculateTotal(fila);
-                $("#result").load(location.href + " #result");
-                $("#pagos2").load(location.href + " #pagos2");
             } else {
                 showMessage();
             }
@@ -491,14 +490,26 @@ $totalPagado = $result['x'];
                 id_gasto_linea: id_gasto_linea
             }
         }).done(function (data) {
-            subtotalGasto = data['subtotalGasto'];
-            totalGasto = data['totalGasto'];
-            subtotalGastoGeneral = data['subtotalGastoGeneral'];
-            totalGastoGeneral = data['totalGastoGeneral'];
+            // Actualizar línea específica con formato español
+            $("#subtotal" + id_gasto_linea).text(formatNumberES(data.subtotalGasto) + "€");
+            $("#total" + id_gasto_linea).text(formatNumberES(data.totalGasto) + "€");
 
-            $("#subtotal" + id_gasto_linea).text(subtotalGasto + "€");
-            $("#total" + id_gasto_linea).text(totalGasto + "€");
-            $("#result").load(location.href + " #result");
+            // Actualizar resumen general
+            const retencion = parseFloat($("#resumenRetencion").data("retencion")) || 0;
+            const subtotalGastoGeneral = parseFloat(data.subtotalGastoGeneral) || 0;
+            const totalGastoGeneral = parseFloat(data.totalGastoGeneral) || 0;
+            const dto = parseFloat(data.dto) || 0;
+            const iva = totalGastoGeneral - subtotalGastoGeneral;
+            const retencionResult = Math.round((subtotalGastoGeneral * retencion / 100) * 100) / 100;
+            const totalFinal = totalGastoGeneral - retencionResult;
+
+            $("#resumenSubtotal").text(formatNumberES(subtotalGastoGeneral) + "€");
+            $("#resumenDto").text(formatNumberES(dto) + "€");
+            $("#resumenIva").text(formatNumberES(iva) + "€");
+            $("#resumenRetencion").text(formatNumberES(retencionResult) + "€");
+            $("#resumenTotal").text(formatNumberES(totalFinal) + "€");
+
+            showMessage();
         });
     }
 

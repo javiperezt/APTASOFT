@@ -204,11 +204,11 @@ while ($row = $c2->fetch_assoc()) {
     <?php
     $getTotalFactura = mysqli_query($mysqli, "SELECT SUM(total) AS totalFactura FROM facturas_partidas where id_factura='$id_factura'");
     $result = mysqli_fetch_assoc($getTotalFactura);
-    $totalFactura = round($result['totalFactura'], 2);
+    $totalFactura = round($result['totalFactura'] ?? 0, 2);
 
     $getSubtotalFactura = mysqli_query($mysqli, "SELECT SUM(subtotal) AS subtotalFactura FROM facturas_partidas where id_factura='$id_factura'");
     $result = mysqli_fetch_assoc($getSubtotalFactura);
-    $subtotalFactura = round($result['subtotalFactura'], 2);
+    $subtotalFactura = round($result['subtotalFactura'] ?? 0, 2);
     ?>
 
 </div>

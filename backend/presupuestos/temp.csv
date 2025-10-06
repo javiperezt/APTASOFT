@@ -1,0 +1,571 @@
+ADECUACION DE LOCAL PARA 8 VIVIENDAS;;;;;;;;;;;;
+Presupuesto;;;;;;;;;;;;
+Código;Nat;Ud;Resumen;Comentario;N;Longitud;Anchura;Altura;Parcial;CanPres;PrPres;ImpPres
+CAP01        ;Capítulo;;TRABAJOS PREVIOS Y DEMOLICIONES;;;;;;;1;16.779,75;16.779,75
+0101         ;Partida;m²;Demoliciones manuales.;;;;;;;1,000;8.750,00;8.750,00
+MO           ;Mano de obra;h;Mano obra;;;;;;;350,000;25,000;8.750,00
+;;;;;1;;;;1,000;;;
+;;;;;;;;;0101;1,000;8.750,00;8.750,00
+;;;;;;;;;;;;
+0102         ;Partida;ud;Zanjas saneamiento y relleno.;;;;;;;1,000;5.250,00;5.250,00
+;;;"Demolición persianas y fachadas.
+";;;;;;;;;
+MO           ;Mano de obra;h;Mano obra;;;;;;;210,000;25,000;5.250,00
+;;;;;1;;;;1,000;;;
+;;;;;;;;;0102;1,000;5.250,00;5.250,00
+;;;;;;;;;;;;
+0103         ;Partida;ud;Demoliciones a maquina.;;;;;;;1,000;2.779,75;2.779,75
+EXT80        ;Material;ud;Prades;;;;;;;1,000;2.779,750;2.779,75
+;;;;;1;;;;1,000;;;
+;;;;;;;;;0103;1,000;2.779,75;2.779,75
+;;;;;;;;;;;;
+;;;;;;;;;CAP01;1;16.779,75;16.779,75
+;;;;;;;;;;;;
+CAP02        ;Capítulo;;FACHADAS, PARTICIONES Y ASILAMIENTOS;;;;;;;1;61.774,93;61.774,93
+2.1          ;Capítulo;;FACHADAS;;;;;;;1,000;9.200,00;9.200,00
+FFZ010       ;Partida;m²;Hoja exterior de fachada de dos hojas, de fábrica de ladrillo ce;;;;;;;1,000;9.200,00;9.200,00
+;;;Hoja exterior de fachada de dos hojas, de 11,5 cm de espesor, de fábrica de ladrillo cerámico hueco triple, para revestir, 24x11,5x11,5 cm, con juntas horizontales y verticales de 10 mm de espesor, recibida con mortero de cemento confeccionado en obra, con 250 kg/m³ de cemento, color gris, dosificación 1:6, suministrado en sacos. Revestimiento de los frentes de forjado con piezas cerámicas y de los frentes de pilares con ladrillos cortados, colocados con el mismo mortero utilizado en el recibido de la fábrica.;;;;;;;;;
+MO           ;Mano de obra;h;Mano obra;;;;;;;320,000;25,000;8.000,00
+MAT1         ;Material;ud;Ladrillo y viguetas;;;;;;;1,000;1.200,000;1.200,00
+;;;;;1;;;;1,000;;;
+;;;;;;;;;FFZ010;1,000;9.200,00;9.200,00
+;;;;;;;;;;;;
+FFX010       ;Partida;m²;Hoja exterior de fachada de dos hojas, de fábrica de ladrillo ce;;;;;;;2,660;0,00;0,00
+;;;Hoja exterior de fachada de dos hojas, de 11,5 cm de espesor, de fábrica de ladrillo cerámico cara vista de caracteristicas similares al existente, con juntas horizontales y verticales de 10 mm de espesor, junta rehundida, recibida con mortero de cemento industrial, color gris, M-5, suministrado a granel.;;;;;;;;;
+;;;;;2;0,950;;1,400;2,660;;;
+;;;;;;;;;FFX010;2,660;;0,00
+;;;;;;;;;;;;
+FCH020       ;Partida;m;Dintel de viguetas autorresistentes de hormigón pretensado.;;;;;;;40,500;0,00;0,00
+;;;"Dintel realizado con una vigueta autorresistente de hormigón pretensado T-18 de 1 m de longitud, apoyada sobre capa de mortero de cemento, industrial, M-7,5, de 2 cm de espesor, con revestimiento de ladrillo cerámico en ambas caras; para la formación de dintel en hueco de muro de fábrica.";;;;;;;;;
+;;;;V1;1;4,100;;;4,100;;;
+;;;;V2;1;3,200;;;3,200;;;
+;;;;V3;1;3,100;;;3,100;;;
+;;;;V4;2;3,300;;;6,600;;;
+;;;;V5;2;3,300;;;6,600;;;
+;;;;V6;1;1,900;;;1,900;;;
+;;;;V7;1;3,400;;;3,400;;;
+;;;;V8;1;4,300;;;4,300;;;
+;;;;V9;1;4,200;;;4,200;;;
+;;;;V10;1;3,100;;;3,100;;;
+;;;;;;;;;FCH020;40,500;;0,00
+;;;;;;;;;;;;
+;;;;;;;;;2.1;1,000;9.200,00;9.200,00
+;;;;;;;;;;;;
+2.2          ;Capítulo;;TRASDOSADOS;;;;;;;1,000;22.341,22;22.341,22
+;;;TRASDOSADOS;;;;;;;;;
+RRY005       ;Partida;m²;Trasdosado autoportante de placas de yeso laminado.;;;;;;;590,725;37,82;22.341,22
+;;;"Trasdosado autoportante libre, de 85 mm de espesor, con nivel de calidad del acabado Q2, formado por placa de yeso laminado tipo normal de 15 mm de espesor, atornillada directamente a una estructura autoportante de acero galvanizado formada por canales horizontales, sólidamente fijados al suelo y al techo y montantes verticales de 70 mm y 0,6 mm de espesor con una modulación de 600 mm y con disposición normal ""N"", montados sobre canales junto al paramento vertical. Incluso banda acústica; fijaciones para el anclaje de canales y montantes metálicos; tornillería para la fijación de las placas; cinta de papel con refuerzo metálico y pasta y cinta para el tratamiento de juntas.";;;;;;;;;
+EXT1         ;Material;;Material pladur distriplac;;;;;;;1,000;19,320;19,32
+EXT3         ;Material;;Mano obra trasdosado Jose;;;;;;;1,000;18,500;18,50
+;;;;Fachadas;1;2,900;;4,500;13,050;;;
+;;;;;1;8,450;;4,500;38,025;;;
+;;;;;1;3,000;;4,500;13,500;;;
+;;;;;1;7,300;;4,900;35,770;;;
+;;;;;1;3,400;;4,900;16,660;;;
+;;;;;1;3,800;;4,900;18,620;;;
+;;;;;1;10,450;;4,900;51,205;;;
+;;;;TDS;1;12,950;;4,500;58,275;;;
+;;;;;1;21,250;;4,500;95,625;;;
+;;;;;1;15,750;;4,900;77,175;;;
+;;;;;1;12,070;;4,500;54,315;;;
+;;;;;1;12,070;;4,500;54,315;;;
+;;;;;1;13,100;;4,900;64,190;;;
+;;;;;;;;;RRY005;590,725;37,82;22.341,22
+;;;;;;;;;;;;
+NAO030       ;Partida;m²;Aislamiento térmico entre montantes en trasdosado autoportante d;;;;;;;590,725;0,00;0,00
+;;;"Aislamiento térmico entre los montantes de la estructura portante del trasdosado autoportante de placas, formado por panel compacto de lana mineral Arena de alta densidad, Arena Apta ""ISOVER"", según UNE-EN 13162, de 65 mm de espesor, no revestido, resistencia térmica 1,9 m²K/W, conductividad térmica 0,034 W/(mK), colocado entre los montantes de la estructura portante.";;;;;;;;;
+;;;;Fachadas;1;2,900;;4,500;13,050;;;
+;;;;;1;8,450;;4,500;38,025;;;
+;;;;;1;3,000;;4,500;13,500;;;
+;;;;;1;7,300;;4,900;35,770;;;
+;;;;;1;3,400;;4,900;16,660;;;
+;;;;;1;3,800;;4,900;18,620;;;
+;;;;;1;10,450;;4,900;51,205;;;
+;;;;TDS;1;12,950;;4,500;58,275;;;
+;;;;;1;21,250;;4,500;95,625;;;
+;;;;;1;15,750;;4,900;77,175;;;
+;;;;;1;12,070;;4,500;54,315;;;
+;;;;;1;12,070;;4,500;54,315;;;
+;;;;;1;13,100;;4,900;64,190;;;
+;;;;;;;;;NAO030;590,725;;0,00
+;;;;;;;;;;;;
+;;;;;;;;;2.2;1,000;22.341,22;22.341,22
+;;;;;;;;;;;;
+2.3          ;Capítulo;;TABIQUERIA INTERIOR;;;;;;;1,000;6.724,03;6.724,03
+;;;TABIQUERIA INTERIOR;;;;;;;;;
+FBY010       ;Partida;m²;Tabique de placas de yeso laminado.;;;;;;;164,724;40,82;6.724,03
+;;;"Tabique sencillo (15+70+15)/600 (70) (1 normal + 1 normal), con placas de yeso laminado, de 100 mm de espesor total, con nivel de calidad del acabado estándar (Q2), formado por una estructura simple de perfiles de chapa de acero galvanizado de 70 mm de anchura, a base de montantes (elementos verticales) separados 600 mm entre sí, con disposición normal ""N"" y canales (elementos horizontales), a la que se atornillan dos placas en total (una placa tipo normal en una cara, de 15 mm de espesor y una placa tipo normal de 15 mm de espesor en la otra cara). Incluso banda acústica de dilatación autoadhesiva; fijaciones para el anclaje de canales y montantes metálicos; tornillería para la fijación de las placas; cinta de papel con refuerzo metálico y pasta y cinta para el tratamiento de juntas.";;;;;;;;;
+EXT1         ;Material;;Material pladur distriplac;;;;;;;1,000;19,320;19,32
+EXT2         ;Material;;Mano obra tabique pladur Jose;;;;;;;1,000;21,500;21,50
+;;;;T1;1;7,300;;2,800;20,440;;;
+;;;;;1;1,700;;2,800;4,760;;;
+;;;;;2;2,340;;2,800;13,104;;;
+;;;;;2;3,900;;2,800;21,840;;;
+;;;;;1;7,300;;2,800;20,440;;;
+;;;;;1;1,900;;2,800;5,320;;;
+;;;;;1;1,800;;2,800;5,040;;;
+;;;;;1;4,250;;2,800;11,900;;;
+;;;;;1;4,100;;2,800;11,480;;;
+;;;;;1;3,050;;2,800;8,540;;;
+;;;;;1;1,850;;2,800;5,180;;;
+;;;;;1;1,500;;2,800;4,200;;;
+;;;;;1;2,600;;2,800;7,280;;;
+;;;;;2;4,500;;2,800;25,200;;;
+;;;;;;;;;FBY010;164,724;40,82;6.724,03
+;;;;;;;;;;;;
+NAP020b      ;Partida;m²;Aislamiento térmico intermedio en tabique de placas.;;;;;;;164,724;0,00;0,00
+;;;"Aislamiento térmico intermedio en tabique de placas, con panel compacto de lana mineral Arena de alta densidad, Arena Apta ""ISOVER"", según UNE-EN 13162, de 65 mm de espesor, no revestido, resistencia térmica 1,9 m²K/W, conductividad térmica 0,034 W/(mK), colocado entre los montantes de la estructura portante.";;;;;;;;;
+;;;;T1;1;7,300;;2,800;20,440;;;
+;;;;;1;1,700;;2,800;4,760;;;
+;;;;;2;2,340;;2,800;13,104;;;
+;;;;;2;3,900;;2,800;21,840;;;
+;;;;;1;7,300;;2,800;20,440;;;
+;;;;;1;1,900;;2,800;5,320;;;
+;;;;;1;1,800;;2,800;5,040;;;
+;;;;;1;4,250;;2,800;11,900;;;
+;;;;;1;4,100;;2,800;11,480;;;
+;;;;;1;3,050;;2,800;8,540;;;
+;;;;;1;1,850;;2,800;5,180;;;
+;;;;;1;1,500;;2,800;4,200;;;
+;;;;;1;2,600;;2,800;7,280;;;
+;;;;;2;4,500;;2,800;25,200;;;
+;;;;;;;;;NAP020b;164,724;;0,00
+;;;;;;;;;;;;
+;;;;;;;;;2.3;1,000;6.724,03;6.724,03
+;;;;;;;;;;;;
+2.4          ;Capítulo;;DIVISORIA VIVIENDAS;;;;;;;1,000;23.509,68;23.509,68
+FBY010c      ;Partida;m²;Tabique de placas de yeso laminado.;;;;;;;410,148;57,32;23.509,68
+;;;"Tabique especial (12,5+12,5+70 + 70+12,5+12,5)/600 (70 + 70) (1 normal + 1 normal + 1 normal + 1 normal), con placas de yeso laminado, de 190 mm de espesor total, con nivel de calidad del acabado estándar (Q2), formado por una estructura doble sin arriostrar de perfiles de chapa de acero galvanizado de 70 + 70 mm de anchura, a base de montantes (elementos verticales) separados 600 mm entre sí, con disposición normal ""N"" y canales (elementos horizontales), a la que se atornillan cuatro placas en total (una placa tipo normal en una cara, de 12,5 mm de espesor y una placa tipo normal de 12,5 mm de espesor en la otra cara). Incluso banda acústica de dilatación autoadhesiva; fijaciones para el anclaje de canales y montantes metálicos; tornillería para la fijación de las placas; cinta de papel con refuerzo metálico y pasta y cinta para el tratamiento de juntas.";;;;;;;;;
+EXT1         ;Material;;Material pladur distriplac;;;;;;;1,000;19,320;19,32
+EXT4         ;Material;;Mano obra medianera pladir Jose;;;;;;;1,000;38,000;38,00
+;;;;T2;1;8,850;;4,500;39,825;;;
+;;;;;1;12,950;;4,500;58,275;;;
+;;;;;1;9,300;;4,500;41,850;;;
+;;;;;1;3,400;;4,500;15,300;;;
+;;;;;1;9,900;;4,900;48,510;;;
+;;;;;1;13,420;;4,900;65,758;;;
+;;;;;1;12,600;;4,900;61,740;;;
+;;;;;1;11,950;;4,900;58,555;;;
+;;;;;1;2,850;;4,900;13,965;;;
+;;;;;1;1,300;;4,900;6,370;;;
+;;;;;;;;;FBY010c;410,148;57,32;23.509,68
+;;;;;;;;;;;;
+NAP020       ;Partida;m²;Aislamiento térmico intermedio en tabique de placas.;;;;;;;25,245;0,00;0,00
+;;;"Aislamiento térmico intermedio en tabique de placas, con panel compacto de lana mineral Arena de alta densidad, Arena Apta ""ISOVER"", según UNE-EN 13162, de 65 mm de espesor, no revestido, resistencia térmica 1,9 m²K/W, conductividad térmica 0,034 W/(mK), colocado entre los montantes de la estructura portante.";;;;;;;;;
+;;;;T2;1;1,250;;3,300;4,125;;;
+;;;;;1;2,800;;3,300;9,240;;;
+;;;;;1;3,600;;3,300;11,880;;;
+;;;;;;;;;NAP020;25,245;;0,00
+;;;;;;;;;;;;
+;;;;;;;;;2.4;1,000;23.509,68;23.509,68
+;;;;;;;;;;;;
+;;;;;;;;;CAP02;1;61.774,93;61.774,93
+;;;;;;;;;;;;
+CAP03        ;Capítulo;;CARPINTERIA, VIDRIERIA Y CERRAJERIA;;;;;;;1;27.210,64;27.210,64
+LCP060c      ;Partida;Ud;Carpintería exterior de PVC. PE;;;;;;;8,000;938,58;7.508,64
+;;;"Puerta de PVC, una hoja practicable con apertura hacia el interior, dimensiones 1000x2200 mm, compuesta de marco, hoja y junquillos, acabado estándar en las dos caras, color similar al existente en el resto de edificio, perfiles de 70 mm de anchura, soldados a inglete, que incorporan cinco cámaras interiores, tanto en la sección de la hoja como en la del marco, para mejora del aislamiento térmico; galce con pendiente del 5% para facilitar el desagüe; con refuerzos interiores, juntas de estanqueidad de EPDM manilla y herrajes; transmitancia térmica del marco: Uh,m = 1,3 W/(m²K); espesor máximo del acristalamiento: 40 mm; compuesta por marco, hojas, herrajes de colgar y apertura, con cerradura de seguridad, elementos de estanqueidad y accesorios homologados, con clasificación a la permeabilidad al aire clase 4, según UNE-EN 12207, clasificación a la estanqueidad al agua clase E750, según UNE-EN 12208, y clasificación a la resistencia a la carga del viento clase C3, según UNE-EN 12210, con premarco sin persiana. Incluso sellador adhesivo y silicona neutra para sellado perimetral de las juntas exterior e interior, entre la carpintería y la obra.";;;;;;;;;
+;;;;PE;8;;;;8,000;;;
+;;;;;;;;;LCP060c;8,000;938,58;7.508,64
+;;;;;;;;;;;;
+LCP060       ;Partida;Ud;Carpintería exterior de PVC. V1;;;;;;;1,000;1.768,00;1.768,00
+;;;"Ventana de PVC, tres hojas practicables con apertura hacia el interior y fijo inferior, dimensiones 2600x1700 mm, altura del fijo 500 mm, compuesta de marco, hoja y junquillos, acabado estándar en las dos caras, color similar al existente en el resto de edificio, perfiles de 70 mm de anchura, soldados a inglete, que incorporan cinco cámaras interiores, tanto en la sección de la hoja como en la del marco, para mejora del aislamiento térmico; galce con pendiente del 5% para facilitar el desagüe; con refuerzos interiores, juntas de estanqueidad de EPDM, manilla y herrajes; transmitancia térmica del marco: Uh,m = 1,3 W/(m²K); espesor máximo del acristalamiento: 40 mm; compuesta por marco, hojas, herrajes de colgar y apertura, con cerradura de seguridad, elementos de estanqueidad y accesorios homologados, con clasificación a la permeabilidad al aire clase 4, según UNE-EN 12207, clasificación a la estanqueidad al agua clase 9A, según UNE-EN 12208, y clasificación a la resistencia a la carga del viento clase C5, según UNE-EN 12210, con premarco cajón de persiana térmico incorporado (monoblock), persiana enrollable de lamas de PVC, con accionamiento manual con cinta y recogedor. Incluso sellador adhesivo y silicona neutra para sellado perimetral de las juntas exterior e interior, entre la carpintería y la obra.";;;;;;;;;
+;;;;V1;1;;;;1,000;;;
+;;;;;;;;;LCP060;1,000;1.768,00;1.768,00
+;;;;;;;;;;;;
+LCP060b      ;Partida;Ud;Carpintería exterior de PVC. V2;;;;;;;1,000;1.156,00;1.156,00
+;;;"Ventana de PVC, dos hojas practicables con apertura hacia el interior y fijo inferior, dimensiones 1700x1700 mm, altura del fijo 500 mm, compuesta de marco, hoja y junquillos, acabado estándar en las dos caras, color similar al existente en el resto de edificio, perfiles de 70 mm de anchura, soldados a inglete, que incorporan cinco cámaras interiores, tanto en la sección de la hoja como en la del marco, para mejora del aislamiento térmico; galce con pendiente del 5% para facilitar el desagüe; con refuerzos interiores, juntas de estanqueidad de EPDM, manilla y herrajes; transmitancia térmica del marco: Uh,m = 1,3 W/(m²K); espesor máximo del acristalamiento: 40 mm; compuesta por marco, hojas, herrajes de colgar y apertura, con cerradura de seguridad, elementos de estanqueidad y accesorios homologados, con clasificación a la permeabilidad al aire clase 4, según UNE-EN 12207, clasificación a la estanqueidad al agua clase 9A, según UNE-EN 12208, y clasificación a la resistencia a la carga del viento clase C5, según UNE-EN 12210, con premarco cajón de persiana térmico incorporado (monoblock), persiana enrollable de lamas de PVC, con accionamiento manual con cinta y recogedor. Incluso sellador adhesivo y silicona neutra para sellado perimetral de las juntas exterior e interior, entre la carpintería y la obra.";;;;;;;;;
+;;;;V2;1;;;;1,000;;;
+;;;;;;;;;LCP060b;1,000;1.156,00;1.156,00
+;;;;;;;;;;;;
+LCP060d      ;Partida;Ud;Carpintería exterior de PVC. V3;;;;;;;1,000;1.088,00;1.088,00
+;;;"Ventana de PVC, dos hojas practicables con apertura hacia el interior y fijo inferior, dimensiones 1600x1700 mm, altura del fijo 500 mm, compuesta de marco, hoja y junquillos, acabado estándar en las dos caras, color similar al existente en el resto de edificio, perfiles de 70 mm de anchura, soldados a inglete, que incorporan cinco cámaras interiores, tanto en la sección de la hoja como en la del marco, para mejora del aislamiento térmico; galce con pendiente del 5% para facilitar el desagüe; con refuerzos interiores, juntas de estanqueidad de EPDM, manilla y herrajes; transmitancia térmica del marco: Uh,m = 1,3 W/(m²K); espesor máximo del acristalamiento: 40 mm; compuesta por marco, hojas, herrajes de colgar y apertura, con cerradura de seguridad, elementos de estanqueidad y accesorios homologados, con clasificación a la permeabilidad al aire clase 4, según UNE-EN 12207, clasificación a la estanqueidad al agua clase 9A, según UNE-EN 12208, y clasificación a la resistencia a la carga del viento clase C5, según UNE-EN 12210, con premarco cajón de persiana térmico incorporado (monoblock), persiana enrollable de lamas de PVC, con accionamiento manual con cinta y recogedor. Incluso sellador adhesivo y silicona neutra para sellado perimetral de las juntas exterior e interior, entre la carpintería y la obra.";;;;;;;;;
+;;;;V3;1;;;;1,000;;;
+;;;;;;;;;LCP060d;1,000;1.088,00;1.088,00
+;;;;;;;;;;;;
+LCP060h      ;Partida;Ud;Carpintería exterior de PVC. V4;;;;;;;2,000;1.120,00;2.240,00
+;;;"Ventana de PVC, cuatro hojas, dos hojas oscilobatientes y dos hojas practicables, con apertura hacia el interior, dimensiones 2800x1000 mm, compuesta de marco, hoja y junquillos, acabado estándar en las dos caras, color similar al existente en el resto de edificio, perfiles de 70 mm de anchura, soldados a inglete, que incorporan cinco cámaras interiores, tanto en la sección de la hoja como en la del marco, para mejora del aislamiento térmico; galce con pendiente del 5% para facilitar el desagüe; con refuerzos interiores, juntas de estanqueidad de EPDM manilla y herrajes; transmitancia térmica del marco: Uh,m = 1,3 W/(m²K); espesor máximo del acristalamiento: 40 mm; compuesta por marco, hojas, herrajes de colgar y apertura, con cerradura de seguridad, elementos de estanqueidad y accesorios homologados, con clasificación a la permeabilidad al aire clase 4, según UNE-EN 12207, clasificación a la estanqueidad al agua clase 9A, según UNE-EN 12208, y clasificación a la resistencia a la carga del viento clase C5, según UNE-EN 12210, con premarco cajón de persiana térmico incorporado (monoblock), persiana enrollable de lamas de PVC, con accionamiento manual con cinta y recogedor. Incluso sellador adhesivo y silicona neutra para sellado perimetral de las juntas exterior e interior, entre la carpintería y la obra.";;;;;;;;;
+;;;;V4;2;;;;2,000;;;
+;;;;;;;;;LCP060h;2,000;1.120,00;2.240,00
+;;;;;;;;;;;;
+LCP060hb     ;Partida;Ud;Carpintería exterior de PVC. V5;;;;;;;2,000;1.120,00;2.240,00
+;;;"Ventana de PVC, cuatro hojas, dos hojas oscilobatientes y dos hojas practicables, con apertura hacia el interior, dimensiones 2800x1000 mm, compuesta de marco, hoja y junquillos, acabado estándar en las dos caras, color similar al existente en el resto de edificio, perfiles de 70 mm de anchura, soldados a inglete, que incorporan cinco cámaras interiores, tanto en la sección de la hoja como en la del marco, para mejora del aislamiento térmico; galce con pendiente del 5% para facilitar el desagüe; con refuerzos interiores, juntas de estanqueidad de EPDM manilla y herrajes; transmitancia térmica del marco: Uh,m = 1,3 W/(m²K); espesor máximo del acristalamiento: 40 mm; compuesta por marco, hojas, herrajes de colgar y apertura, con cerradura de seguridad, elementos de estanqueidad y accesorios homologados, con clasificación a la permeabilidad al aire clase 4, según UNE-EN 12207, clasificación a la estanqueidad al agua clase 9A, según UNE-EN 12208, y clasificación a la resistencia a la carga del viento clase C5, según UNE-EN 12210, con premarco cajón de persiana térmico incorporado (monoblock), persiana enrollable de lamas de PVC, con accionamiento manual con cinta y recogedor. Incluso sellador adhesivo y silicona neutra para sellado perimetral de las juntas exterior e interior, entre la carpintería y la obra.";;;;;;;;;
+;;;;V5;2;;;;2,000;;;
+;;;;;;;;;LCP060hb;2,000;1.120,00;2.240,00
+;;;;;;;;;;;;
+LCP060i      ;Partida;Ud;Carpintería exterior de PVC. V6;;;;;;;1,000;756,00;756,00
+;;;"Ventana de PVC, una hoja oscilobatiente y otra hoja practicable con apertura hacia el interior, dimensiones 1400x1200 mm, compuesta de marco, hoja y junquillos, acabado estándar en las dos caras, color similar al existente en el resto de edificio, perfiles de 70 mm de anchura, soldados a inglete, que incorporan cinco cámaras interiores, tanto en la sección de la hoja como en la del marco, para mejora del aislamiento térmico; galce con pendiente del 5% para facilitar el desagüe; con refuerzos interiores, juntas de estanqueidad de EPDM manilla y herrajes; transmitancia térmica del marco: Uh,m = 1,3 W/(m²K); espesor máximo del acristalamiento: 40 mm; compuesta por marco, hojas, herrajes de colgar y apertura, con cerradura de seguridad, elementos de estanqueidad y accesorios homologados, con clasificación a la permeabilidad al aire clase 4, según UNE-EN 12207, clasificación a la estanqueidad al agua clase 9A, según UNE-EN 12208, y clasificación a la resistencia a la carga del viento clase C5, según UNE-EN 12210, con premarco cajón de persiana térmico incorporado (monoblock), persiana enrollable de lamas de PVC, con accionamiento manual con cinta y recogedor. Incluso sellador adhesivo y silicona neutra para sellado perimetral de las juntas exterior e interior, entre la carpintería y la obra.";;;;;;;;;
+;;;;V6;1;;;;1,000;;;
+;;;;;;;;;LCP060i;1,000;756,00;756,00
+;;;;;;;;;;;;
+LCP060e      ;Partida;Ud;Carpintería exterior de PVC. V7;;;;;;;1,000;1.292,00;1.292,00
+;;;"Ventana de PVC, dos hojas practicables con apertura hacia el interior y fijo inferior, dimensiones 1900x1700 mm, altura del fijo 500 mm, compuesta de marco, hoja y junquillos, acabado estándar en las dos caras, color similar al existente en el resto de edificio, perfiles de 70 mm de anchura, soldados a inglete, que incorporan cinco cámaras interiores, tanto en la sección de la hoja como en la del marco, para mejora del aislamiento térmico; galce con pendiente del 5% para facilitar el desagüe; con refuerzos interiores, juntas de estanqueidad de EPDM, manilla y herrajes; transmitancia térmica del marco: Uh,m = 1,3 W/(m²K); espesor máximo del acristalamiento: 40 mm; compuesta por marco, hojas, herrajes de colgar y apertura, con cerradura de seguridad, elementos de estanqueidad y accesorios homologados, con clasificación a la permeabilidad al aire clase 4, según UNE-EN 12207, clasificación a la estanqueidad al agua clase 9A, según UNE-EN 12208, y clasificación a la resistencia a la carga del viento clase C5, según UNE-EN 12210, con premarco cajón de persiana térmico incorporado (monoblock), persiana enrollable de lamas de PVC, con accionamiento manual con cinta y recogedor. Incluso sellador adhesivo y silicona neutra para sellado perimetral de las juntas exterior e interior, entre la carpintería y la obra.";;;;;;;;;
+;;;;V7;1;;;;1,000;;;
+;;;;;;;;;LCP060e;1,000;1.292,00;1.292,00
+;;;;;;;;;;;;
+LCP060f      ;Partida;Ud;Carpintería exterior de PVC. V8;;;;;;;1,000;1.904,00;1.904,00
+;;;"Ventana de PVC, tres hojas practicables con apertura hacia el interior y fijo inferior, dimensiones 2800x1700 mm, altura del fijo 500 mm, compuesta de marco, hoja y junquillos, acabado estándar en las dos caras, color similar al existente en el resto de edificio, perfiles de 70 mm de anchura, soldados a inglete, que incorporan cinco cámaras interiores, tanto en la sección de la hoja como en la del marco, para mejora del aislamiento térmico; galce con pendiente del 5% para facilitar el desagüe; con refuerzos interiores, juntas de estanqueidad de EPDM, manilla y herrajes; transmitancia térmica del marco: Uh,m = 1,3 W/(m²K); espesor máximo del acristalamiento: 40 mm; compuesta por marco, hojas, herrajes de colgar y apertura, con cerradura de seguridad, elementos de estanqueidad y accesorios homologados, con clasificación a la permeabilidad al aire clase 4, según UNE-EN 12207, clasificación a la estanqueidad al agua clase 9A, según UNE-EN 12208, y clasificación a la resistencia a la carga del viento clase C5, según UNE-EN 12210, con premarco cajón de persiana térmico incorporado (monoblock), persiana enrollable de lamas de PVC, con accionamiento manual con cinta y recogedor. Incluso sellador adhesivo y silicona neutra para sellado perimetral de las juntas exterior e interior, entre la carpintería y la obra.";;;;;;;;;
+;;;;V8;1;;;;1,000;;;
+;;;;;;;;;LCP060f;1,000;1.904,00;1.904,00
+;;;;;;;;;;;;
+LCP060fb     ;Partida;Ud;Carpintería exterior de PVC. V9;;;;;;;1,000;1.836,00;1.836,00
+;;;"Ventana de PVC, tres hojas practicables con apertura hacia el interior y fijo inferior, dimensiones 2700x1700 mm, altura del fijo 500 mm, compuesta de marco, hoja y junquillos, acabado estándar en las dos caras, color similar al existente en el resto de edificio, perfiles de 70 mm de anchura, soldados a inglete, que incorporan cinco cámaras interiores, tanto en la sección de la hoja como en la del marco, para mejora del aislamiento térmico; galce con pendiente del 5% para facilitar el desagüe; con refuerzos interiores, juntas de estanqueidad de EPDM, manilla y herrajes; transmitancia térmica del marco: Uh,m = 1,3 W/(m²K); espesor máximo del acristalamiento: 40 mm; compuesta por marco, hojas, herrajes de colgar y apertura, con cerradura de seguridad, elementos de estanqueidad y accesorios homologados, con clasificación a la permeabilidad al aire clase 4, según UNE-EN 12207, clasificación a la estanqueidad al agua clase 9A, según UNE-EN 12208, y clasificación a la resistencia a la carga del viento clase C5, según UNE-EN 12210, con premarco cajón de persiana térmico incorporado (monoblock), persiana enrollable de lamas de PVC, con accionamiento manual con cinta y recogedor. Incluso sellador adhesivo y silicona neutra para sellado perimetral de las juntas exterior e interior, entre la carpintería y la obra.";;;;;;;;;
+;;;;V9;1;;;;1,000;;;
+;;;;;;;;;LCP060fb;1,000;1.836,00;1.836,00
+;;;;;;;;;;;;
+LCP060g      ;Partida;Ud;Carpintería exterior de PVC. V10;;;;;;;1,000;1.088,00;1.088,00
+;;;"Ventana de PVC, dos hojas practicables con apertura hacia el interior y fijo inferior, dimensiones 1600x1700 mm, altura del fijo 500 mm, compuesta de marco, hoja y junquillos, acabado estándar en las dos caras, color similar al existente en el resto de edificio, perfiles de 70 mm de anchura, soldados a inglete, que incorporan cinco cámaras interiores, tanto en la sección de la hoja como en la del marco, para mejora del aislamiento térmico; galce con pendiente del 5% para facilitar el desagüe; con refuerzos interiores, juntas de estanqueidad de EPDM, manilla y herrajes; transmitancia térmica del marco: Uh,m = 1,3 W/(m²K); espesor máximo del acristalamiento: 40 mm; compuesta por marco, hojas, herrajes de colgar y apertura, con cerradura de seguridad, elementos de estanqueidad y accesorios homologados, con clasificación a la permeabilidad al aire clase 4, según UNE-EN 12207, clasificación a la estanqueidad al agua clase 9A, según UNE-EN 12208, y clasificación a la resistencia a la carga del viento clase C5, según UNE-EN 12210, con premarco cajón de persiana térmico incorporado (monoblock), persiana enrollable de lamas de PVC, con accionamiento manual con cinta y recogedor. Incluso sellador adhesivo y silicona neutra para sellado perimetral de las juntas exterior e interior, entre la carpintería y la obra.";;;;;;;;;
+;;;;V10;1;;;;1,000;;;
+;;;;;;;;;LCP060g;1,000;1.088,00;1.088,00
+;;;;;;;;;;;;
+LVC040       ;Partida;m²;"Doble acristalamiento ""GUARDIAN GLASS"".";;;;;;;41,920;0,00;0,00
+;;;"Doble acristalamiento Guardian Sun Lamiglass 44.1/12 aire/Guardian Lamiglass 44.1 ""GUARDIAN GLASS"", conjunto formado por vidrio exterior Guardian Sun Lamiglass de 4+4 mm, compuesto por dos lunas de vidrio laminar de 4 mm unidas mediante una lámina incolora de butiral de polivinilo, con capa de control solar y baja emisividad térmica incorporada en la cara interior, cámara de aire deshidratada con perfil separador de aluminio y doble sellado perimetral, de 12 mm, y vidrio interior de seguridad Guardian Lamiglass de 4+4 mm, compuesto por dos lunas de vidrio laminar de 4 mm unidas mediante una lámina incolora de butiral de polivinilo; 28 mm de espesor total, fijado sobre carpintería con acuñado mediante calzos de apoyo perimetrales y laterales, sellado en frío con silicona neutra incolora, compatible con el material soporte.";;;;;;;;;
+;;;;PE;8;1,000;;2,200;17,600;;;
+;;;;V1;1;2,600;;1,700;4,420;;;
+;;;;V2;1;1,700;;1,700;2,890;;;
+;;;;V3;1;1,600;;1,700;2,720;;;
+;;;;V4;2;2,800;;1,000;5,600;;;
+;;;;V5;2;2,800;;1,000;5,600;;;
+;;;;V6;1;1,400;;1,200;1,680;;;
+;;;;V7;1;1,900;;1,700;3,230;;;
+;;;;V8;1;2,800;;1,700;4,760;;;
+;;;;V9;1;2,700;;1,700;4,590;;;
+;;;;V10;1;1,600;;1,700;2,720;;;
+;;;;A deducir Sup. marcos;-0,25;55,560;;;-13,890;;;
+;;;;;;;;;LVC040;41,920;;0,00
+;;;;;;;;;;;;
+LPM010       ;Partida;Ud;Puerta interior abatible, de madera.;;;;;;;11,000;394,00;4.334,00
+;;;"Puerta interior abatible, ciega, de una hoja de 203x72,5x4 cm, de tablero aglomerado, chapado con haya vaporizada, barnizada en taller; precerco de pino país de 90x35 mm; galces de MDF, con rechapado de madera, de haya vaporizada de 90x20 mm; tapajuntas de MDF, con rechapado de madera, de haya vaporizada de 70x10 mm en ambas caras. Incluso, bisagras, herrajes de colgar, de cierre y manivela sobre escudo largo de latón, color negro, acabado brillante, serie básica.";;;;;;;;;
+EXT13        ;Material;;Puerta paso. JC;;;;;;;1,000;380,000;380,00
+EXT14        ;Material;;Premarco Obramat;;;;;;;1,000;14,000;14,00
+;;;;P1;11;;;;11,000;;;
+;;;;;;;;;LPM010;11,000;394,00;4.334,00
+;;;;;;;;;;;;
+;;;;;;;;;CAP03;1;27.210,64;27.210,64
+;;;;;;;;;;;;
+CAP04        ;Capítulo;;REVESTIMIENTOS;;;;;;;1;76.602,86;76.602,86
+4.1          ;Capítulo;;PAREDES;;;;;;;1,000;32.752,53;32.752,53
+;;;PAREDES;;;;;;;;;
+RPE010       ;Partida;m²;Enfoscado de cemento sobre paramento exterior.;;;;;;;46,625;81,40;3.795,28
+;;;Formación de revestimiento continuo de mortero de cemento, tipo GP CSIII W1, maestreado, de 15 mm de espesor, aplicado sobre un paramento vertical exterior, acabado superficial fratasado. Incluso, colocación de malla de fibra de vidrio antiálcalis para refuerzo de encuentros entre materiales diferentes y en los frentes de forjado, en un 20% de la superficie del paramento, formación de juntas, rincones, maestras con separación entre ellas no superior a un metro, aristas, mochetas, jambas, dinteles, remates en los encuentros con paramentos, revestimientos u otros elementos recibidos en su superficie.;;;;;;;;;
+MO           ;Mano de obra;h;Mano obra;;;;;;;3,000;25,000;75,00
+MAT100       ;Material;kg;Mortero hidrófugo gris.;;;;;;;40,000;0,160;6,40
+;;;;Cierre parcial de huecos existentes;1;2,000;;1,900;3,800;;;
+;;;;;1;3,600;;1,900;6,840;;;
+;;;;;1;3,650;;1,900;6,935;;;
+;;;;;1;2,600;;0,900;2,340;;;
+;;;;;1;2,900;;1,900;5,510;;;
+;;;;;1;4,700;;1,750;8,225;;;
+;;;;;1;3,250;;1,700;5,525;;;
+;;;;Fachadas bajo carpinterias;1;2,600;;0,500;1,300;;;
+;;;;;1;1,700;;0,500;0,850;;;
+;;;;;1;1,600;;0,500;0,800;;;
+;;;;;1;1,900;;0,500;0,950;;;
+;;;;;1;2,800;;0,500;1,400;;;
+;;;;;1;2,700;;0,500;1,350;;;
+;;;;;1;1,600;;0,500;0,800;;;
+;;;;;;;;;RPE010;46,625;81,40;3.795,28
+;;;;;;;;;;;;
+RFS010       ;Partida;m²;Pintura al silicato sobre paramento exterior.;;;;;;;177,478;12,00;2.129,74
+;;;"Aplicación manual de dos manos de pintura al silicato, color similar al existente en el resto de edificio, acabado mate, textura lisa, la primera mano diluida con un 10% de agua y la siguiente sin diluir, (rendimiento: 0,1 l/m² cada mano); previa aplicación de una mano de imprimación, a base de soluciones de silicato potásico, sobre paramento exterior de mortero de cemento.";;;;;;;;;
+EXT28        ;Material;;Pintura exterior;;;;;;;1,000;12,000;12,00
+;;;;;1;25,300;;4,900;123,970;;;
+;;;;;1;10,920;;4,900;53,508;;;
+;;;;;;;;;RFS010;177,478;12,00;2.129,74
+;;;;;;;;;;;;
+RAC012       ;Partida;m²;Revestimiento interior con piezas de gran formato de gres porcel;;;;;;;392,140;55,55;21.783,38
+;;;Revestimiento interior con piezas de gran formato de gres porcelánico esmaltado, acabado pulido, de 330x660x10 mm, gama media, capacidad de absorción de agua E<0,5%, grupo BIa, según UNE-EN 14411. SOPORTE: paramento de placas de yeso laminado, vertical, de hasta 3 m de altura. COLOCACIÓN: en capa fina y mediante doble encolado con adhesivo cementoso mejorado, C2 TE, según UNE-EN 12004, con deslizamiento reducido y tiempo abierto ampliado. REJUNTADO: con mortero de juntas cementoso mejorado, con absorción de agua reducida y resistencia elevada a la abrasión tipo CG 2 W A, color blanco, en juntas de 3 mm de espesor. Incluso crucetas de PVC.;;;;;;;;;
+MO           ;Mano de obra;h;Mano obra;;;;;;;1,500;25,000;37,50
+MAT3         ;Material;m²;Alicatado cerámico.;;;;;;;1,000;12,450;12,45
+MAT4         ;Material;kg;Cola H40 Kerakoll No Limits.;;;;;;;9,000;0,560;5,04
+MAT5         ;Material;kg;Rejunte Fugabella junta fina Kerakoll.;;;;;;;0,500;1,120;0,56
+;;;;Baños y zona cocinas;1;140,050;;2,800;392,140;;;
+;;;;;;;;;RAC012;392,140;55,55;21.783,38
+;;;;;;;;;;;;
+RIP035b      ;Partida;m²;Pintura plástica sobre paramento interior de yeso proyectado o p;;;;;;;776,020;6,50;5.044,13
+;;;"Aplicación manual de dos manos de pintura plástica, acabado mate, textura lisa, diluidas con un 15% de agua o sin diluir, (rendimiento: 0,1 l/m² cada mano); previa aplicación de una mano de imprimación acrílica reguladora de la absorción, sobre paramento interior de yeso proyectado o placas de yeso laminado, vertical, de hasta 3 m de altura.";;;;;;;;;
+EXT27        ;Material;;Pintura interior;;;;;;;1,000;6,500;6,50
+;;;;;1;277,150;;2,800;776,020;;;
+;;;;;;;;;RIP035b;776,020;6,50;5.044,13
+;;;;;;;;;;;;
+;;;;;;;;;4.1;1,000;32.752,53;32.752,53
+;;;;;;;;;;;;
+4.2          ;Capítulo;;SUELOS;;;;;;;1,000;24.310,18;24.310,18
+NEM010       ;Partida;m²;Film impermeable de polietileno de baja densidad (LDPE);;;;;;;439,680;1,25;549,60
+;;;Film impermeable de polietileno de baja densidad (LDPE) de 0,2 mm de espesor y 200 g/m² de masa superficial, color blanco, de 200 m de espesor de aire equivalente frente a la difusión de vapor de agua, según UNE-EN 1931. Colocación en obra: con solapes, directamente sobre el soporte. Incluso cinta autoadhesiva para sellado de juntas.;;;;;;;;;
+MO           ;Mano de obra;h;Mano obra;;;;;;;0,040;25,000;1,00
+MAT10        ;Material;;Rollo galga negra. Orbamat.;;;;;;;1,000;0,250;0,25
+;;;;;1;439,680;;;439,680;;;
+;;;;;;;;;NEM010;439,680;1,25;549,60
+;;;;;;;;;;;;
+RSB017       ;Partida;m²;Base de mortero autonivelante de cemento.;;;;;;;439,680;12,00;5.276,16
+;;;"Base para pavimento interior, de 20 mm de espesor, de mortero autonivelante de cemento, CT - C25 - F5 según UNE-EN 13813, vertido con mezcladora-bombeadora, sobre soporte de hormigón, previa aplicación de imprimación reguladora de la absorción; y posterior aplicación de agente filmógeno, (0,15 l/m²). Incluso banda de panel rígido de poliestireno expandido para la preparación de las juntas perimetrales de dilatación.";;;;;;;;;
+EXT51        ;Material;;Mortero autonivelante;;;;;;;1,000;12,000;12,00
+;;;;;1;439,680;;;439,680;;;
+;;;;;;;;;RSB017;439,680;12,00;5.276,16
+;;;;;;;;;;;;
+RSG120       ;Partida;m²;Pavimento interior de piezas de gres porcelánico esmaltado. Colo;;;;;;;439,680;35,50;15.608,64
+;;;Pavimento interior de piezas de gres porcelánico esmaltado, de 300x600x10 mm, gama media, capacidad de absorción de agua E<0,5%, grupo BIa, según UNE-EN 14411, con resistencia al deslizamiento Rd<=15 según UNE 41901 EX y resbaladicidad clase 0 según CTE. SOPORTE: de mortero de cemento. COLOCACIÓN: en capa fina y mediante doble encolado con adhesivo cementoso, C1 TE, según UNE-EN 12004, con deslizamiento reducido y tiempo abierto ampliado. REJUNTADO: con mortero de juntas cementoso tipo L, color blanco, en juntas de 2 mm de espesor.;;;;;;;;;
+EXT30        ;Material;;Pavimento vinilico;;;;;;;1,000;18,500;18,50
+EXT31        ;Material;;Montaje pavimento vinilico;;;;;;;1,000;17,000;17,00
+;;;;;1;439,680;;;439,680;;;
+;;;;;;;;;RSG120;439,680;35,50;15.608,64
+;;;;;;;;;;;;
+RSG220       ;Partida;m²;Pavimento exterior de piezas de gres porcelánico esmaltado. Colo;;;;;;;8,000;65,00;520,00
+;;;Pavimento exterior de piezas de gres porcelánico esmaltado, de de 300x600x10 mm, gama media, capacidad de absorción de agua E<0,5%, grupo BIa, según UNE-EN 14411, con resistencia al deslizamiento Rd>45 según UNE 41901 EX y resbaladicidad clase 3 según CTE. SOPORTE: de mortero de cemento. COLOCACIÓN: en capa fina y mediante doble encolado con adhesivo cementoso mejorado, C2 TE S1, según UNE-EN 12004, deformable, con deslizamiento reducido y tiempo abierto ampliado. REJUNTADO: con mortero de juntas cementoso tipo CG 2 W A, color blanco, en juntas de 2 mm de espesor.;;;;;;;;;
+MO           ;Mano de obra;h;Mano obra;;;;;;;1,000;25,000;25,00
+MAT15        ;Material;;Material: Pavimento porcelanico, cola, rejunte...;;;;;;;1,000;40,000;40,00
+;;;;Rampas acceso a viviendas;8;1,000;;;8,000;;;
+;;;;;;;;;RSG220;8,000;65,00;520,00
+;;;;;;;;;;;;
+RSG020       ;Partida;m;Rodapié cerámico. Colocación en capa fina.;;;;;;;277,150;8,50;2.355,78
+;;;Rodapié de gres porcelánico, de 80 cm, gama media. COLOCACIÓN: en capa fina, con adhesivo cementoso de fraguado normal, C1 sin ninguna característica adicional, gris. REJUNTADO: con mortero de juntas cementoso mejorado, con absorción de agua reducida y resistencia elevada a la abrasión tipo CG 2 W A, color blanco, para juntas de 2 a 15 mm.;;;;;;;;;
+EXT32        ;Material;;Rodapie pvc;;;;;;;1,000;2,500;2,50
+EXT33        ;Material;;Montaje rodapie;;;;;;;1,000;6,000;6,00
+;;;;;1;277,150;;;277,150;;;
+;;;;;;;;;RSG020;277,150;8,50;2.355,78
+;;;;;;;;;;;;
+;;;;;;;;;4.2;1,000;24.310,18;24.310,18
+;;;;;;;;;;;;
+4.3          ;Capítulo;;TECHOS;;;;;;;1,000;17.930,15;17.930,15
+RTC015       ;Partida;m²;Falso techo continuo de placas de yeso laminado.;;;;;;;439,680;29,00;12.750,72
+;;;"Falso techo continuo suspendido, liso, 12,5+27+27, situado a una altura menor de 4 m, con nivel de calidad del acabado estándar (Q2), constituido por: ESTRUCTURA: estructura metálica de acero galvanizado de maestras primarias 60/27 mm con una modulación de 1000 mm y suspendidas de la superficie soporte de hormigón con cuelgues combinados cada 900 mm, y maestras secundarias fijadas perpendicularmente a las maestras primarias con conectores tipo caballete con una modulación de 500 mm; PLACAS: una capa de placas de yeso laminado A / UNE-EN 520 - 1200 / longitud / 12,5 / con los bordes longitudinales afinados. Incluso banda autoadhesiva desolidarizante, fijaciones para el anclaje de los perfiles, tornillería para la fijación de las placas, pasta de juntas, cinta microperforada de papel y accesorios de montaje.";;;;;;;;;
+EXT34        ;Material;;Mano obra Falso techo. Jose;;;;;;;1,000;19,000;19,00
+EXT45        ;Material;;Material falso techo. Distriplac;;;;;;;1,000;10,000;10,00
+;;;;;1;439,680;;;439,680;;;
+;;;;;;;;;RTC015;439,680;29,00;12.750,72
+;;;;;;;;;;;;
+RIP035       ;Partida;m²;Pintura plástica sobre paramento interior de yeso proyectado o p;;;;;;;439,680;6,50;2.857,92
+;;;"Aplicación manual de dos manos de pintura plástica, acabado mate, textura lisa, diluidas con un 15% de agua o sin diluir, (rendimiento: 0,1 l/m² cada mano); previa aplicación de una mano de imprimación acrílica reguladora de la absorción, sobre paramento interior de yeso proyectado o placas de yeso laminado, horizontal, hasta 3 m de altura.";;;;;;;;;
+EXT27        ;Material;;Pintura interior;;;;;;;1,000;6,500;6,50
+;;;;;1;439,680;;;439,680;;;
+;;;;;;;;;RIP035;439,680;6,50;2.857,92
+;;;;;;;;;;;;
+NBT010       ;Partida;m²;Aislamiento acústico a ruido aéreo sobre falso techo, con panele;;;;;;;439,680;5,28;2.321,51
+;;;"Aislamiento acústico a ruido aéreo sobre falso techo, con panel compacto de lana mineral Arena de alta densidad, Arena Apta ""ISOVER"", según UNE-EN 13162, de 65 mm de espesor, no revestido, resistencia térmica 1,9 m²K/W, conductividad térmica 0,034 W/(mK).";;;;;;;;;
+EXT25        ;Material;;Lana mineral 40mm;;;;;;;1,000;2,780;2,78
+MO           ;Mano de obra;h;Mano obra;;;;;;;0,100;25,000;2,50
+;;;;;1;439,680;;;439,680;;;
+;;;;;;;;;NBT010;439,680;5,28;2.321,51
+;;;;;;;;;;;;
+;;;;;;;;;4.3;1,000;17.930,15;17.930,15
+;;;;;;;;;;;;
+4.4          ;Capítulo;;REMATES;;;;;;;1,000;1.610,00;1.610,00
+HRP040       ;Partida;m;Vierteaguas de hormigón polímero.;;;;;;;13,100;57,50;753,25
+;;;"Vierteaguas de hormigón polímero de superficie pulida, plano, con goterón, de 225x25 mm, con anclaje metálico de acero inoxidable y grava adherida a la superficie en su cara inferior y empotrado en las jambas; colocación con adhesivo cementoso flexible y de gran adherencia, C2 S2 sobre una capa de regularización de mortero de cemento, industrial, con aditivo hidrófugo, M-15, sobre el que se introducen los anclajes metálicos; y sellado de las juntas entre piezas y de las uniones con los muros con masilla de poliuretano, previa aplicación de la imprimación.";;;;;;;;;
+EXT15        ;Material;m;Vierteaguas hormigón polimero;;;;;;;1,000;27,500;27,50
+MO           ;Mano de obra;h;Mano obra;;;;;;;1,200;25,000;30,00
+;;;;V4;2;2,900;;;5,800;;;
+;;;;V5;2;2,900;;;5,800;;;
+;;;;V6;1;1,500;;;1,500;;;
+;;;;;;;;;HRP040;13,100;57,50;753,25
+;;;;;;;;;;;;
+HRL040       ;Partida;m;Vierteaguas de aluminio.;;;;;;;14,900;57,50;856,75
+;;;"Vierteaguas de chapa plegada de aluminio lacado en color blanco, con 60 micras de espesor mínimo de película seca, espesor 1,2 mm, desarrollo 95 mm y 2 pliegues, con goterón, empotrado en las jambas; fijación con tornillos autotaladrantes; y sellado de las juntas entre piezas y de las uniones con los muros con sellador adhesivo monocomponente.";;;;;;;;;
+EXT15        ;Material;m;Vierteaguas hormigón polimero;;;;;;;1,000;27,500;27,50
+MO           ;Mano de obra;h;Mano obra;;;;;;;1,200;25,000;30,00
+;;;;V1;1;2,600;;;2,600;;;
+;;;;V2;1;1,700;;;1,700;;;
+;;;;V3;1;1,600;;;1,600;;;
+;;;;V7;1;1,900;;;1,900;;;
+;;;;V8;1;2,800;;;2,800;;;
+;;;;V9;1;2,700;;;2,700;;;
+;;;;V10;1;1,600;;;1,600;;;
+;;;;;;;;;HRL040;14,900;57,50;856,75
+;;;;;;;;;;;;
+;;;;;;;;;4.4;1,000;1.610,00;1.610,00
+;;;;;;;;;;;;
+;;;;;;;;;CAP04;1;76.602,86;76.602,86
+;;;;;;;;;;;;
+CAP05        ;Capítulo;;INSTALACIONES;;;;;;;1;43.084,00;43.084,00
+5.1          ;Capítulo;;FONTANERIA Y SANEAMIENTO;;;;;;;1,000;16.820,00;16.820,00
+;;;FONTANERIA;;;;;;;;;
+IFI012       ;Partida;Ud;Instalación interior para cocina.;;;;;;;24,000;220,00;5.280,00
+;;;Instalación interior de fontanería para cocina con dotación para: fregadero, toma y llave de paso para lavavajillas, toma y llave de paso para lavadora, realizada con tubo de polietileno reticulado (PE-X), para la red de agua fría y caliente que conecta la derivación particular o una de sus ramificaciones con cada uno de los aparatos sanitarios, con los diámetros necesarios para cada punto de servicio. Incluso llaves de paso de cuarto húmedo para el corte del suministro de agua, de polietileno reticulado (PE-X), material auxiliar para montaje y sujeción a la obra, derivación particular, accesorios de derivaciones.;;;;;;;;;
+EXT23        ;Material;;Punto agua;;;;;;;1,000;220,000;220,00
+;;;;;8;3,000;;;24,000;;;
+;;;;;;;;;IFI012;24,000;220,00;5.280,00
+;;;;;;;;;;;;
+IFI011       ;Partida;Ud;Instalación interior para cuarto de baño.;;;;;;;32,000;220,00;7.040,00
+;;;Instalación interior de fontanería para cuarto de baño con dotación para: inodoro, lavabo sencillo, ducha, realizada con tubo de polietileno reticulado (PE-X), para la red de agua fría y caliente que conecta la derivación particular o una de sus ramificaciones con cada uno de los aparatos sanitarios, con los diámetros necesarios para cada punto de servicio. Incluso llaves de paso de cuarto húmedo para el corte del suministro de agua, de polietileno reticulado (PE-X), material auxiliar para montaje y sujeción a la obra, derivación particular, accesorios de derivaciones.;;;;;;;;;
+EXT23        ;Material;;Punto agua;;;;;;;1,000;220,000;220,00
+;;;;;8;4,000;;;32,000;;;
+;;;;;;;;;IFI011;32,000;220,00;7.040,00
+;;;;;;;;;;;;
+5.1.13       ;Partida;ud;Colectores enterrados y arquetas.;;;;;;;1,000;4.500,00;4.500,00
+;;;;;1;;;;1,000;;;
+;;;;;;;;;5.1.13;1,000;4.500,00;4.500,00
+;;;;;;;;;;;;
+;;;;;;;;;5.1;1,000;16.820,00;16.820,00
+;;;;;;;;;;;;
+5.3          ;Capítulo;;ELECTRICIDAD;;;;;;;1,000;16.000,00;16.000,00
+ILA020       ;Partida;ud;Electricidad, teleco, iluminación;;;;;;;1,000;16.000,00;16.000,00
+;;;"Electricidad, teleco, iluminación
+";;;;;;;;;
+EXT20        ;Material;;Electricidad Jesus;;;;;;;8,000;2.000,000;16.000,00
+;;;;;1;;;;1,000;;;
+;;;;;;;;;ILA020;1,000;16.000,00;16.000,00
+;;;;;;;;;;;;
+;;;;;;;;;5.3;1,000;16.000,00;16.000,00
+;;;;;;;;;;;;
+5.4          ;Capítulo;;EXTRACCION;;;;;;;1,000;3.776,00;3.776,00
+IVH030       ;Partida;Ud;Extractor estático mecánico.;;;;;;;8,000;127,00;1.016,00
+;;;"Extractor estático mecánico.
+";;;;;;;;;
+EXT26        ;Material;ud;Extractor SP Silent 100. BBC;;;;;;;1,000;127,000;127,00
+;;;;;8;;;;8,000;;;
+;;;;;;;;;IVH030;8,000;127,00;1.016,00
+;;;;;;;;;;;;
+E27          ;Partida;ud;Tubos ventilación baños y rejillas.;;;;;;;1,000;1.800,00;1.800,00
+MAT2         ;Material;ud;Tubos ventilación baños y rejillas.;;;;;;;1,000;600,000;600,00
+MO           ;Mano de obra;h;Mano obra;;;;;;;48,000;25,000;1.200,00
+;;;;;1;;;;1,000;;;
+;;;;;;;;;E27;1,000;1.800,00;1.800,00
+;;;;;;;;;;;;
+IV3          ;Partida;Ud;Tubos ventilación aerotermos.;;;;;;;8,000;120,00;960,00
+EXT70        ;Material;ud;Tubos ventilación aerotermos.;;;;;;;1,000;120,000;120,00
+;;;;;8;;;;8,000;;;
+;;;;;;;;;IV3;8,000;120,00;960,00
+;;;;;;;;;;;;
+;;;;;;;;;5.4;1,000;3.776,00;3.776,00
+;;;;;;;;;;;;
+5.6          ;Capítulo;;ACS;;;;;;;1,000;6.488,00;6.488,00
+ICA050       ;Partida;Ud;Bomba de calor de pared para producción de ACS;;;;;;;8,000;811,00;6.488,00
+;;;"Bomba de calor aire-agua para producción de A.C.S., instalación mural, modelo KCA V4.2 ""KOSNER"" 80 L o similar, para gas R-290, alimentación monofásica (230V/50Hz), SCOP 2,86. Totalmente montada, conexionada y puesta en marcha por la empresa instaladora para la comprobación de su correcto funcionamiento.
+";;;;;;;;;
+EXT21        ;Material;ud;Aerotermo 80l. BBC;;;;;;;1,000;811,000;811,00
+;;;;;8;;;;8,000;;;
+;;;;;;;;;ICA050;8,000;811,00;6.488,00
+;;;;;;;;;;;;
+;;;;;;;;;5.6;1,000;6.488,00;6.488,00
+;;;;;;;;;;;;
+;;;;;;;;;CAP05;1;43.084,00;43.084,00
+;;;;;;;;;;;;
+CAP06        ;Capítulo;;EQUIPAMIENTO;;;;;;;1;28.643,44;28.643,44
+6.1          ;Capítulo;;COCINAS;;;;;;;1,000;21.280,00;21.280,00
+;;;COCINAS;;;;;;;;;
+SCF010       ;Partida;Ud;Fregadero.;;;;;;;8,000;160,00;1.280,00
+;;;Fregadero de acero inoxidable para instalación en encimera, de 1 cubeta, de 450x490 mm, con válvula de desagüe, para encimera de cocina, equipado con grifería monomando con cartucho cerámico para fregadero, gama básica, acabado cromado, compuesta de caño giratorio, aireador y enlaces de alimentación flexibles, válvula con desagüe y sifón. Incluso conexión a las redes de agua fría y caliente y a la red de evacuación existentes, fijación del aparato y sellado con silicona.;;;;;;;;;
+EXT39        ;Material;;Fregadero;;;;;;;1,000;100,000;100,00
+EXT40        ;Material;;Grifo fregadero;;;;;;;1,000;60,000;60,00
+;;;;;8;;;;8,000;;;
+;;;;;;;;;SCF010;8,000;160,00;1.280,00
+;;;;;;;;;;;;
+SNA010       ;Partida;Ud;Encimera de aglomerado de cuarzo.;;;;;;;8,000;1.250,00;10.000,00
+;;;"Encimera de aglomerado de cuarzo blanco, acabado pulido, de 250 cm de longitud, 60 cm de anchura y 2 cm de espesor, canto simple recto, con los bordes ligeramente biselados, formación de 2 huecos con sus cantos pulidos, y copete perimetral de 7 cm de altura y 2 cm de espesor, con el borde recto. Incluso replanteo; soportes y anclajes de acero galvanizado; resolución de esquinas, ángulos, cantos y remates; uniones entre piezas y encuentros con paramentos, sellados con silicona; nivelado y acuñado; eliminación de restos y limpieza.";;;;;;;;;
+EXT43        ;Material;;Encimera;;;;;;;1,000;1.250,000;1.250,00
+;;;;;8;;;;8,000;;;
+;;;;;;;;;SNA010;8,000;1.250,00;10.000,00
+;;;;;;;;;;;;
+SCM020       ;Partida;Ud;Mobiliario completo en cocina.;;;;;;;8,000;1.250,00;10.000,00
+;;;Mobiliario completo en cocina compuesto por 2,5 m de muebles bajos con zócalo inferior, incluso montaje de cajones y baldas del mismo material que el cuerpo, bisagras, patas regulables para muebles bajos guías de cajones y otros herrajes de calidad básica, instalados en los cuerpos de los muebles y tiradores, pomos, sistemas de apertura automática, y otros herrajes de la serie básica, fijados en los frentes de cocina.;;;;;;;;;
+EXT41        ;Material;;Cocina;;;;;;;1,000;950,000;950,00
+EXT42        ;Material;;Modulo lavadora termo;;;;;;;1,000;300,000;300,00
+;;;;;8;;;;8,000;;;
+;;;;;;;;;SCM020;8,000;1.250,00;10.000,00
+;;;;;;;;;;;;
+;;;;;;;;;6.1;1,000;21.280,00;21.280,00
+;;;;;;;;;;;;
+6.2          ;Capítulo;;BAÑOS;;;;;;;1,000;7.363,44;7.363,44
+SAC010b      ;Partida;Ud;Conjunto de aparatos sanitarios en baño formado por: lavabo de p;;;;;;;8,000;920,43;7.363,44
+;;;"Conjunto de aparatos sanitarios en baño formado por: lavabo de porcelana sanitaria, de semiempotrar, gama básica, color blanco, de 560x400 mm; inodoro de porcelana sanitaria, con tanque bajo, gama básica, color blanco; plato de ducha de porcelana sanitaria, gama básica, color blanco, 70x70x10 cm, con grifería monomando, gama básica, acabado cromado.
+Incluye: Replanteo y trazado en el paramento soporte de la situación de los aparatos. Colocación de los elementos de fijación suministrados por el fabricante. Nivelación, aplomado y colocación de aparatos. Conexión a la red de evacuación. Montaje de la grifería. Conexión a las redes de agua fría y caliente. Montaje de accesorios y complementos. Sellado de juntas.";;;;;;;;;
+EXT35        ;Material;;Inodoro;;;;;;;1,000;131,400;131,40
+EXT36        ;Material;;Plato ducha+grifo;;;;;;;1,000;298,000;298,00
+EXT37        ;Material;;Encimera+bol+grifo+espejo;;;;;;;1,000;284,250;284,25
+EXT38        ;Material;;Mampara+montaje;;;;;;;1,000;206,780;206,78
+;;;;;8;;;;8,000;;;
+;;;;;;;;;SAC010b;8,000;920,43;7.363,44
+;;;;;;;;;;;;
+;;;;;;;;;6.2;1,000;7.363,44;7.363,44
+;;;;;;;;;;;;
+;;;;;;;;;CAP06;1;28.643,44;28.643,44
+;;;;;;;;;;;;
+CAP07        ;Capítulo;;CONTROL DE CALIDAD;;;;;;;1;0,00;0,00
+CCal         ;Partida;Ud;Control de Calidad según Decreto 1/2015;;;;;;;1,000;0,00;0,00
+;;;Control de Calidad según Decreto 1/2015;;;;;;;;;
+;;;;;1;;;;1,000;;;
+;;;;;;;;;CCal;1,000;;0,00
+;;;;;;;;;;;;
+;;;;;;;;;CAP07;1;0,00;0,00
+;;;;;;;;;;;;
+CAP08        ;Capítulo;;GESTION DE RESIDUOS;;;;;;;1;3.000,00;3.000,00
+GRES         ;Partida;Ud;Gestión de resíduos de la construcción;;;;;;;1,000;3.000,00;3.000,00
+;;;Partida alzada para la correcta gestión de resíduos de construcción generados durante el transcurso de las obras.;;;;;;;;;
+EXT44        ;Material;;Gestion residuos;;;;;;;20,000;150,000;3.000,00
+;;;;;;;;;GRES;1,000;3.000,00;3.000,00
+;;;;;;;;;;;;
+;;;;;;;;;CAP08;1;3.000,00;3.000,00
+;;;;;;;;;;;;
+CAP09        ;Capítulo;;SEGURIDAD Y SALUD;;;;;;;1;0,00;0,00
+24-01        ;Partida;pa;Seguridad y salud;;;;;;;1,000;0,00;0,00
+;;;Seguridad y salud según lo previsto en el R.D.1627/1997 de 24 de Octubre, por el que se establecen las diposiciones minimas de seguridad y salud en las obras de construcción.;;;;;;;;;
+;;;;;1;;;;1,000;;;
+;;;;;;;;;24-01;1,000;;0,00
+;;;;;;;;;;;;
+;;;;;;;;;CAP09;1;0,00;0,00
+;;;;;;;;;;;;
+10           ;Capítulo;;Ayudas;;;;;;;1;18.400,00;18.400,00
+HYA010       ;Partida;m²;Ayudas de albañilería.;;;;;;;1,000;13.750,00;13.750,00
+;;;"Ayudas de albañilería.
+";;;;;;;;;
+MO           ;Mano de obra;h;Mano obra;;;;;;;550,000;25,000;13.750,00
+;;;;;1;;;;1,000;;;
+;;;;;;;;;HYA010;1,000;13.750,00;13.750,00
+;;;;;;;;;;;;
+HYA010b      ;Partida;m²;Descarga materiales.;;;;;;;1,000;4.000,00;4.000,00
+;;;"Descarga materiales.
+";;;;;;;;;
+MO           ;Mano de obra;h;Mano obra;;;;;;;160,000;25,000;4.000,00
+;;;;;1;;;;1,000;;;
+;;;;;;;;;HYA010b;1,000;4.000,00;4.000,00
+;;;;;;;;;;;;
+HEA010       ;Partida;Ud;Recibido de plato de ducha de cualquier medida, mediante formaci;;;;;;;8,000;81,25;650,00
+;;;"Recibido de plato de ducha de cualquier medida, mediante formación de meseta de elevación con ladrillo cerámico hueco sencillo, recibido con mortero de cemento, industrial, M-5.
+Incluye: Replanteo. Apertura de rozas. Retacado con arena. Colocación y nivelación del plato de ducha. Protección con tablero aglomerado de madera. Limpieza y eliminación del material sobrante.";;;;;;;;;
+MO           ;Mano de obra;h;Mano obra;;;;;;;3,250;25,000;81,25
+;;;;;8;;;;8,000;;;
+;;;;;;;;;HEA010;8,000;81,25;650,00
+;;;;;;;;;;;;
+;;;;;;;;;10;1;18.400,00;18.400,00
+;;;;;;;;;;;;
+11           ;Capítulo;;ELECTRODOMESTICOS Y EQUIPAMIENTO;;;;;;;1;4.504,38;4.504,38
+1101         ;Partida;ud;Campana filtro carbono.;;;;;;;8,000;60,33;482,64
+EXT50        ;Material;;Campana filtro carbono.;;;;;;;1,000;60,330;60,33
+;;;;;8;;;;8,000;;;
+;;;;;;;;;1101;8,000;60,33;482,64
+;;;;;;;;;;;;
+1102         ;Partida;ud;Horno.;;;;;;;8,000;129,74;1.037,92
+EXT52        ;Material;;Horno.;;;;;;;1,000;129,740;129,74
+;;;;;8;;;;8,000;;;
+;;;;;;;;;1102;8,000;129,74;1.037,92
+;;;;;;;;;;;;
+1103         ;Partida;ud;Encimera.;;;;;;;8,000;148,70;1.189,60
+EXT53        ;Material;;Encimera;;;;;;;1,000;148,700;148,70
+;;;;;8;;;;8,000;;;
+;;;;;;;;;1103;8,000;148,70;1.189,60
+;;;;;;;;;;;;
+1104         ;Partida;ud;Carrito lavavajillas.;;;;;;;8,000;74,37;594,96
+EXT54        ;Material;;Carrito lavavajillas;;;;;;;1,000;74,370;74,37
+;;;;;8;;;;8,000;;;
+;;;;;;;;;1104;8,000;74,37;594,96
+;;;;;;;;;;;;
+1105         ;Partida;ud;Accesorios baño.;;;;;;;8,000;95,43;763,44
+EXT55        ;Material;ud;Accesorios;;;;;;;1,000;45,430;45,43
+MO           ;Mano de obra;h;Mano obra;;;;;;;2,000;25,000;50,00
+;;;;;8;;;;8,000;;;
+;;;;;;;;;1105;8,000;95,43;763,44
+;;;;;;;;;;;;
+1106         ;Partida;ud;Buzon;;;;;;;8,000;53,93;431,44
+EXT56        ;Material;;Buzon;;;;;;;1,000;28,930;28,93
+MO           ;Mano de obra;h;Mano obra;;;;;;;1,000;25,000;25,00
+;;;;;8;;;;8,000;;;
+;;;;;;;;;1106;8,000;53,93;431,44
+;;;;;;;;;;;;
+1107         ;Partida;ud;Ajuste;;;;;;;1,000;4,38;4,38
+;;;;;1;;;;1,000;;;
+;;;;;;;;;1107;1,000;4,38;4,38
+;;;;;;;;;;;;
+;;;;;;;;;11;1;4.504,38;4.504,38
+;;;;;;;;;;;;
+;;;;;;;;;MEDYPRESAJUST;1;280.000,00;280.000,00
+;;;;;;;;;;;;

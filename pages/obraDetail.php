@@ -237,12 +237,12 @@ while ($row = $c2->fetch_assoc()) {
             // subtotal presupuesto
             $q = mysqli_query($mysqli, "SELECT SUM(cantidad*subtotal) AS x FROM presupuestos_partidas where id_presupuesto='$id_presupuesto'");
             $result = mysqli_fetch_assoc($q);
-            $subtotal = round($result['x'], 2);
+            $subtotal = round($result['x'] ?? 0, 2);
 
             // total presupuesto
             $q = mysqli_query($mysqli, "SELECT SUM(cantidad*total) AS x FROM presupuestos_partidas where id_presupuesto='$id_presupuesto'");
             $result = mysqli_fetch_assoc($q);
-            $total = round($result['x'], 2);
+            $total = round($result['x'] ?? 0, 2);
 
             $c1_presupuestos = $mysqli->query("SELECT * FROM contactos where id=$id_contacto");
             while ($row = $c1_presupuestos->fetch_assoc()) {
@@ -385,12 +385,12 @@ while ($row = $c2->fetch_assoc()) {
             // subtotal factura
             $q = mysqli_query($mysqli, "SELECT SUM(subtotal) AS x FROM facturas_partidas where id_factura='$id_factura'");
             $result = mysqli_fetch_assoc($q);
-            $subtotal = round($result['x'], 2);
+            $subtotal = round($result['x'] ?? 0, 2);
 
             // total factura
             $q = mysqli_query($mysqli, "SELECT SUM(total) AS x FROM facturas_partidas where id_factura='$id_factura'");
             $result = mysqli_fetch_assoc($q);
-            $total = round($result['x'], 2);
+            $total = round($result['x'] ?? 0, 2);
 
             $c1_facturas = $mysqli->query("SELECT * FROM contactos where id=$id_contacto");
             while ($row = $c1_facturas->fetch_assoc()) {
@@ -478,12 +478,12 @@ while ($row = $c2->fetch_assoc()) {
             // subtotal gastos
             $q = mysqli_query($mysqli, "SELECT SUM(subtotal) AS x FROM gastos_lineas where id_gasto='$id_gasto'");
             $result = mysqli_fetch_assoc($q);
-            $subtotal = round($result['x'], 2);
+            $subtotal = round($result['x'] ?? 0, 2);
 
             // total gastos
             $q = mysqli_query($mysqli, "SELECT SUM(total) AS x FROM gastos_lineas where id_gasto='$id_gasto'");
             $result = mysqli_fetch_assoc($q);
-            $total = round($result['x'], 2);
+            $total = round($result['x'] ?? 0, 2);
 
             if ($id_categoria_gasto) {
                 $c1_gastos_categorias = $mysqli->query("SELECT * FROM gastos_categorias where id=$id_categoria_gasto");

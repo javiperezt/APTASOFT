@@ -72,8 +72,8 @@
             ?>
         </select>
     </td>
-    <td id="subtotal<?= $id_gasto_linea; ?>"><?= $subtotal; ?>€</td>
-    <td id="total<?= $id_gasto_linea; ?>"><?= $total; ?>€</td>
+    <td id="subtotal<?= $id_gasto_linea; ?>"><?= formatCurrency($subtotal); ?></td>
+    <td id="total<?= $id_gasto_linea; ?>"><?= formatCurrency($total); ?></td>
     <td><a class="pointer" onclick="gastoDeleteLine(<?= $id_gasto_linea; ?>)"><i
                 class="bi bi-x fs-5"></i></a></td>
 </tr>

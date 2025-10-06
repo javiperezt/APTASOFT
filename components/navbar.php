@@ -12,67 +12,86 @@ if(!$ratio){
 if($num!=0) {
     $ratio = $checkedsqq / $num;
 }
+$incidenciasAbiertas = $num - $checkedsqq;
 ?>
-<nav class="navbar navbar-expand-md mainBgColor">
+<nav class="navbar navbar-expand-lg navbar-dark mainBgColor shadow-sm">
     <div class="container">
-        <div class="navbar-brand"><img width="80px" src="../img/logoAptaBlanco.png" alt=""></div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="inicio_dashboard.php">
+            <img src="../img/logoAptaBlanco.png" alt="Logo" width="70">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse " id="navbarNav">
-            <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <!-- Obras Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="obrasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-building"></i> Obras
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="obrasDropdown">
+                        <li><a class="dropdown-item" href="obras.php">Obras</a></li>
+                        <li><a class="dropdown-item" href="presupuestos.php">Presupuestos</a></li>
+                    </ul>
+                </li>
+
+                <!-- Facturación Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="facturacionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-receipt"></i> Facturación
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="facturacionDropdown">
+                        <li><a class="dropdown-item" href="facturas.php">Facturas</a></li>
+                        <li><a class="dropdown-item" href="gastos.php">Gastos</a></li>
+                    </ul>
+                </li>
+
+                <!-- Contactos Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="contactosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-people"></i> Contactos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="contactosDropdown">
+                        <li><a class="dropdown-item" href="contactos.php">Contactos</a></li>
+                        <li><a class="dropdown-item" href="empleados.php">Empleados</a></li>
+                    </ul>
+                </li>
+
+                <!-- Paneles -->
                 <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="inicio_dashboard.php">Inicio</a>
+                    <a class="nav-link" href="dashboard.php"><i class="bi bi-bar-chart"></i> Resultados</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="obras.php">Obras</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="contactos.php">Contactos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="presupuestos.php">Presupuestos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="facturas.php">Facturas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="gastos.php">Gastos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="empleados.php">Empleados</a>
+                    <a class="nav-link" href="calendario.php"><i class="bi bi-calendar3"></i> Planificación</a>
                 </li>
                 <!--<li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="nominas.php">Nóminas</a>
-                </li>-->
-               <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="dashboard.php"> Resultados</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-white" aria-current="page" href="tareas.php"> Panel tareas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" aria-current="page" href="empleadosTareas.php"> Panel empleados</a>
-                </li>
-
-
+                </li>-->
                 <li class="nav-item">
-                    <a class="nav-link <?= $ratio == 1 ? 'text-white' : 'text-danger text-decoration-underline'  ?>" aria-current="page" href="incidencias.php">Incidencias <?= $ratio == 1 ? '' : '(‼️)' ?></a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="bi bi-calendar3 fs-5 text-white ms-3" aria-current="page" href="calendario.php"></a>
+                    <a class="nav-link text-white position-relative" href="incidencias.php">
+                        <i class="bi bi-exclamation-triangle"></i> Incidencias
+                        <?php if($incidenciasAbiertas > 0): ?>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
+                                <?= $incidenciasAbiertas ?>
+                            </span>
+                        <?php endif; ?>
+                    </a>
                 </li>
             </ul>
-        </div>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="#"><?= $NOMBRE_USUARIO ?></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-danger" aria-current="page" href="../logout.php"><i class="bi bi-box-arrow-right fs-5"></i></a>
+
+            <!-- Usuario -->
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="usuarioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i> <?= $NOMBRE_USUARIO ?>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usuarioDropdown">
+                        <li><a class="dropdown-item text-danger" href="../logout.php"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>

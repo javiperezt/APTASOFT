@@ -9,6 +9,8 @@ if (!$isLoggedIn) {
 }
 
 $id_presupuesto = filter_input(INPUT_GET, 'id_presupuesto', FILTER_SANITIZE_SPECIAL_CHARS);
+$from = filter_input(INPUT_GET, 'from', FILTER_SANITIZE_SPECIAL_CHARS);
+$from_obra_id = filter_input(INPUT_GET, 'from_obra_id', FILTER_SANITIZE_SPECIAL_CHARS);
 
 $c0 = $mysqli->query("SELECT * FROM presupuestos where id=$id_presupuesto");
 while ($row = $c0->fetch_assoc()) {
@@ -44,25 +46,32 @@ if ($id_estado) {
     }
 }
 
-$getSubtotalPresupuesto = mysqli_query($mysqli, "SELECT SUM(subtotal) AS subtotalPresupuesto FROM presupuestos_partidas where id_presupuesto='$id_presupuesto'");
+$getSubtotalPresupuesto = mysqli_query($mysqli, "SELECT SUM(subtotal * cantidad) AS subtotalPresupuesto FROM presupuestos_partidas where id_presupuesto='$id_presupuesto'");
 $result = mysqli_fetch_assoc($getSubtotalPresupuesto);
-$subtotalPresupuesto = round($result['subtotalPresupuesto'], 2);
+$subtotalPresupuesto = round($result['subtotalPresupuesto'] ?? 0, 2);
 
-$getTotalPresupuesto = mysqli_query($mysqli, "SELECT SUM(total) AS totalPresupuesto FROM presupuestos_partidas where id_presupuesto='$id_presupuesto'");
+$getTotalPresupuesto = mysqli_query($mysqli, "SELECT SUM(total * cantidad) AS totalPresupuesto FROM presupuestos_partidas where id_presupuesto='$id_presupuesto'");
 $result = mysqli_fetch_assoc($getTotalPresupuesto);
-$totalPresupuesto = round($result['totalPresupuesto'], 2);
+$totalPresupuesto = round($result['totalPresupuesto'] ?? 0, 2);
 
-$getIva21 = mysqli_query($mysqli, "SELECT SUM((ps.total-ps.subtotal)) AS iva21 FROM presupuestos_partidas pp INNER JOIN presupuestos_subpartidas ps on pp.id = ps.id_presupuesto_partidas where pp.id_presupuesto=$id_presupuesto and ps.id_iva=1");
+$getIva21 = mysqli_query($mysqli, "SELECT SUM((ps.total-ps.subtotal) * pp.cantidad) AS iva21 FROM presupuestos_partidas pp INNER JOIN presupuestos_subpartidas ps on pp.id = ps.id_presupuesto_partidas where pp.id_presupuesto=$id_presupuesto and ps.id_iva=1");
 $result = mysqli_fetch_assoc($getIva21);
-$iva21 = round($result['iva21'], 2);
+$iva21 = round($result['iva21'] ?? 0, 2);
 
-$getIva10 = mysqli_query($mysqli, "SELECT SUM((ps.total-ps.subtotal)) AS iva10 FROM presupuestos_partidas pp INNER JOIN presupuestos_subpartidas ps on pp.id = ps.id_presupuesto_partidas where pp.id_presupuesto=$id_presupuesto and ps.id_iva=2");
+$getIva10 = mysqli_query($mysqli, "SELECT SUM((ps.total-ps.subtotal) * pp.cantidad) AS iva10 FROM presupuestos_partidas pp INNER JOIN presupuestos_subpartidas ps on pp.id = ps.id_presupuesto_partidas where pp.id_presupuesto=$id_presupuesto and ps.id_iva=2");
 $result = mysqli_fetch_assoc($getIva10);
-$iva10 = round($result['iva10'], 2);
+$iva10 = round($result['iva10'] ?? 0, 2);
 
-$getIva4 = mysqli_query($mysqli, "SELECT SUM((ps.total-ps.subtotal)) AS iva4 FROM presupuestos_partidas pp INNER JOIN presupuestos_subpartidas ps on pp.id = ps.id_presupuesto_partidas where pp.id_presupuesto=$id_presupuesto and ps.id_iva=3");
+$getIva4 = mysqli_query($mysqli, "SELECT SUM((ps.total-ps.subtotal) * pp.cantidad) AS iva4 FROM presupuestos_partidas pp INNER JOIN presupuestos_subpartidas ps on pp.id = ps.id_presupuesto_partidas where pp.id_presupuesto=$id_presupuesto and ps.id_iva=3");
 $result = mysqli_fetch_assoc($getIva4);
-$iva4 = round($result['iva4'], 2);
+$iva4 = round($result['iva4'] ?? 0, 2);
+
+// Determinar URL de retorno dinámica
+if ($from === 'obra' && $from_obra_id) {
+    $back_url = "obraDetail.php?id_obra=$from_obra_id";
+} else {
+    $back_url = "presupuestos.php";
+}
 
 ?>
 <html lang="es">
@@ -79,10 +88,14 @@ $iva4 = round($result['iva4'], 2);
 <!----------- HEAD PAGE ----------->
 <div class="container mt-3 d-flex align-items-center justify-content-between">
     <div class="d-flex gap-2 align-items-center">
-        <a href="presupuestos.php"><i class="bi bi-arrow-left fs-5 text-black"></i></a>
+        <a href="<?= $back_url; ?>"><i class="bi bi-arrow-left fs-5 text-black"></i></a>
         <p class="text-black fw-bold fs-4 m-0">Presupuesto <?= $ref; ?></p>
     </div>
     <div class="d-flex align-items-center gap-2">
+        <button id="toggleAllCapitulos" class="toggle-all-btn">
+            <i class="bi bi-arrows-collapse"></i>
+            <span class="btn-text">Colapsar todo</span>
+        </button>
         <button class="btn btn-secondary btn-sm me-5" id="duplicateButton" data-id="<?=$id_presupuesto;?>">Duplicar Presupuesto</button>
         <form class="m-0" id="uploadCsv" action="../backend/presupuestos/presupuestoImportarCsv.php" method="post"
               enctype="multipart/form-data">
@@ -93,8 +106,8 @@ $iva4 = round($result['iva4'], 2);
         </form>
         <form class="m-0" id="uploadBc3" action="../backend/proceso_bc3/importar_bc3.php" method="post"
               enctype="multipart/form-data">
-            <label class="btn btn-outline-secondary btn-sm" for="uploadFileBc3">Importar BC3<i
-                        class="bi bi-upload ms-2"></i></label>
+            <!--<label class="btn btn-outline-secondary btn-sm" for="uploadFileBc3">Importar BC3<i
+                        class="bi bi-upload ms-2"></i></label>-->
             <input type="file" class="d-none" id="uploadFileBc3" name="file" accept=".bc3">
             <input type="hidden" value="<?= $id_presupuesto; ?>" name="id_presupuesto">
         </form>
@@ -259,6 +272,7 @@ $iva4 = round($result['iva4'], 2);
 
 
 <!----------- CAPÍTULOS ----------->
+<div class="container">
 <?php
 $c5 = $mysqli->query("SELECT * FROM presupuestos_capitulos where id_presupuesto=$id_presupuesto");
 while ($row = $c5->fetch_assoc()) {
@@ -269,22 +283,53 @@ while ($row = $c5->fetch_assoc()) {
         $capitulo = $row['capitulo'];
     }
 
+    // Calcular total del capítulo y número de partidas
+    $partidasQuery = $mysqli->query("SELECT COUNT(*) as count, SUM(subtotal * cantidad) as total FROM presupuestos_partidas where id_presupuesto=$id_presupuesto and id_capitulo=$id_capitulo");
+    $partidasData = $partidasQuery->fetch_assoc();
+    $numPartidas = $partidasData['count'];
+    $totalCapitulo = $partidasData['total'] ?? 0;
+
     include "../components/modals/presupuestoDeleteCapitulo.php";
     ?>
-    <div class="bg-white container-md mt-3 rounded-3 p-4">
-        <div class="d-flex align-items-center justify-content-between">
-            <p class="text-black fw-bold fs-5 "><?= $capitulo; ?></p>
-            <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-                    data-bs-target="#presupuestoDeleteCapitulo<?= $id_capitulo; ?>"><i
-                        class="bi bi-trash-fill"></i></button>
+    <div class="capitulo-container">
+        <div class="capitulo-header" data-capitulo-id="<?= $id_capitulo; ?>">
+            <div class="capitulo-title-wrapper">
+                <h3 class="capitulo-title"><?= $capitulo; ?></h3>
+                <span class="partidas-count"><?= $numPartidas; ?></span>
+            </div>
+
+            <div class="capitulo-stats">
+                <div class="capitulo-stat">
+                    <span class="capitulo-stat-label">Total</span>
+                    <span class="capitulo-stat-value"><?= formatCurrency($totalCapitulo); ?></span>
+                </div>
+            </div>
+
+            <div class="capitulo-controls">
+                <button class="btn btn-sm btn-outline-primary" title="Añadir partida en blanco"
+                        onclick="event.stopPropagation(); addPartidaBlanco(<?= $id_capitulo; ?>, <?= $id_presupuesto; ?>);">
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#presupuestoDeleteCapitulo<?= $id_capitulo; ?>"
+                        onclick="event.stopPropagation();">
+                    <i class="bi bi-trash-fill"></i>
+                </button>
+                <div class="collapse-icon">
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+            </div>
         </div>
 
-        <!----------- TABLE ----------->
-        <div class="table-responsive mt-3">
+        <div class="capitulo-content">
+            <div class="capitulo-body">
+                <!----------- TABLE ----------->
+                <div class="table-responsive">
             <table class="table tableComon">
                 <thead>
                 <tr>
                     <th width="20%" scope="col">Partida</th>
+                    <th width="80px" scope="col">Tipo</th>
                     <th scope="col">Descripción</th>
                     <th width="50px" scope="col">Ud</th>
                     <th width="100px" scope="col">Cantidad</th>
@@ -314,6 +359,19 @@ while ($row = $c5->fetch_assoc()) {
                         $unidad = $row['simbolo'];
                     }
 
+                    // Obtener categorías únicas de las subpartidas de esta partida
+                    $categorias_badges = [];
+                    $categorias_query = $mysqli->query("
+                        SELECT DISTINCT cs.codigo, cs.categoria
+                        FROM presupuestos_subpartidas ps
+                        INNER JOIN categorias_subpartidas cs ON ps.id_categoria = cs.id
+                        WHERE ps.id_presupuesto_partidas = $id_presupuestos_partidas
+                        ORDER BY cs.codigo
+                    ");
+                    while ($cat_row = $categorias_query->fetch_assoc()) {
+                        $categorias_badges[] = $cat_row['codigo'];
+                    }
+
                     include "../components/presupuestos/partidaLine.php";
                 }
                 if ($c7->num_rows == 0) {
@@ -322,41 +380,46 @@ while ($row = $c5->fetch_assoc()) {
                 ?>
                 </tbody>
             </table>
+                </div>
+                <!----------- END TABLE ----------->
+            </div>
         </div>
-        <!----------- END TABLE ----------->
     </div>
     <?php
 }
 ?>
+</div>
 <!----------- END CAPÍTULOS ----------->
 
 
 <!----------- RESUMEN ----------->
-<div id="result" class="container mt-3">
-    <div class="d-flex gap-4 bg-white p-4 rounded-3 ms-auto" style="width: fit-content">
-        <div>
-            <p id="subtotal" class="fs-3 text-black fw-bold"><?= number_format(round($subtotalPresupuesto, 2), 2, ',', '.'); ?>€</p>
-            <p class="letraPeq" style="color: #AEAEAE">Subtotal</p>
-        </div>
-        <div>
-            <p id="iva" class="fs-3 text-black fw-bold"><?= number_format(round($iva21, 2), 2, ',', '.'); ?>€</p>
-            <p class="letraPeq" style="color: #AEAEAE">IVA 21%</p>
-        </div>
-        <?php if ($iva10 > 0) { ?>
+<div id="result" class="container mt-4 mb-5">
+    <div class="bg-white p-4 rounded-3" style="width: fit-content; margin-left: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        <div class="d-flex gap-4">
             <div>
-                <p id="iva" class="fs-3 text-black fw-bold"><?= number_format(round($iva10, 2), 2, ',', '.'); ?>€</p>
-                <p class="letraPeq" style="color: #AEAEAE">IVA 10%</p>
+                <p id="subtotal" class="fs-5 text-black fw-bold m-0"><?= formatCurrency($subtotalPresupuesto); ?></p>
+                <p class="m-0" style="color: #6c757d; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Subtotal</p>
             </div>
-        <?php } ?>
-        <?php if ($iva4 > 0) { ?>
             <div>
-                <p id="iva" class="fs-3 text-black fw-bold"><?= number_format(round($iva4, 2), 2, ',', '.'); ?>€</p>
-                <p class="letraPeq" style="color: #AEAEAE">IVA 4%</p>
+                <p id="iva" class="fs-5 text-black fw-bold m-0"><?= formatCurrency($iva21); ?></p>
+                <p class="m-0" style="color: #6c757d; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">IVA 21%</p>
             </div>
-        <?php } ?>
-        <div>
-            <p id="total" class="fs-3 text-black fw-bold"><?= number_format(round($totalPresupuesto, 2), 2, ',', '.'); ?>€</p>
-            <p class="letraPeq" style="color: #AEAEAE">Total</p>
+            <?php if ($iva10 > 0) { ?>
+                <div>
+                    <p id="iva10" class="fs-5 text-black fw-bold m-0"><?= formatCurrency($iva10); ?></p>
+                    <p class="m-0" style="color: #6c757d; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">IVA 10%</p>
+                </div>
+            <?php } ?>
+            <?php if ($iva4 > 0) { ?>
+                <div>
+                    <p id="iva4" class="fs-5 text-black fw-bold m-0"><?= formatCurrency($iva4); ?></p>
+                    <p class="m-0" style="color: #6c757d; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">IVA 4%</p>
+                </div>
+            <?php } ?>
+            <div style="border-left: 2px solid #e9ecef; padding-left: 1.5rem; margin-left: 0.5rem;">
+                <p id="total" class="fs-4 text-black fw-bold m-0"><?= formatCurrency($totalPresupuesto); ?></p>
+                <p class="m-0" style="color: #6c757d; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Total</p>
+            </div>
         </div>
     </div>
 </div>
@@ -444,6 +507,10 @@ while ($row = $c5->fetch_assoc()) {
                 calculateTotalxCantidad(fila, valor);
             } else {
                 showMessage();
+                // Recargar el resumen si se actualiza desde presupuestos_partidas o presupuestos
+                if (tabla == "presupuestos_partidas" || tabla == "presupuestos_subpartidas") {
+                    $("#result").load(location.href + " #result");
+                }
             }
         });
     }
@@ -460,12 +527,14 @@ while ($row = $c5->fetch_assoc()) {
             }
         }).done(function (data) {
             subtotal_x_cantidad = data['subtotal_x_cantidad'];
-            subtotal_x_cantidad = parseFloat(subtotal_x_cantidad).toFixed(2);
             total_x_cantidad = data['total_x_cantidad'];
-            total_x_cantidad = parseFloat(total_x_cantidad).toFixed(2);
 
-            $("#subtotal_x_cantidad" + id_presupuestos_partidas).text(subtotal_x_cantidad + "€");
-            $("#total_x_cantidad" + id_presupuestos_partidas).text(total_x_cantidad + "€");
+            // Formatear números al estilo español
+            const subtotalFormatted = formatNumberES(subtotal_x_cantidad);
+            const totalFormatted = formatNumberES(total_x_cantidad);
+
+            $("#subtotal_x_cantidad" + id_presupuestos_partidas).text(subtotalFormatted + "€");
+            $("#total_x_cantidad" + id_presupuestos_partidas).text(totalFormatted + "€");
             $("#result").load(location.href + " #result");
         });
     }
@@ -597,6 +666,49 @@ while ($row = $c5->fetch_assoc()) {
     function hideProcessingModal() {
         document.getElementById('processingModal').style.display = 'none';
         document.body.style.overflow = 'auto'; // Restaurar scroll
+    }
+
+    // Añadir partida en blanco de forma asíncrona
+    const addPartidaBlanco = (id_capitulo, id_presupuesto) => {
+        $.ajax({
+            method: "POST",
+            url: "../backend/presupuestos/presupuestoAddPartidaBlanco.php",
+            dataType: 'json',
+            data: {
+                id_capitulo: id_capitulo,
+                id_presupuesto: id_presupuesto
+            }
+        }).done(function (response) {
+            if (response.success) {
+                // Recargar solo la sección de capítulos y el resumen
+                location.reload();
+            } else {
+                alert('Error al crear la partida: ' + response.error);
+            }
+        }).fail(function() {
+            alert('Error al crear la partida');
+        });
+    }
+
+    // Eliminar partida de forma asíncrona
+    const deletePartida = (id_presupuestos_partidas) => {
+        $.ajax({
+            method: "POST",
+            url: "../backend/presupuestos/presupuestoDeletePartida.php",
+            dataType: 'json',
+            data: {
+                id_presupuestos_partidas: id_presupuestos_partidas
+            }
+        }).done(function (response) {
+            if (response.success) {
+                // Recargar la página para mostrar los cambios
+                location.reload();
+            } else {
+                alert('Error al eliminar la partida: ' + response.error);
+            }
+        }).fail(function() {
+            alert('Error al eliminar la partida');
+        });
     }
 
     // jQuery

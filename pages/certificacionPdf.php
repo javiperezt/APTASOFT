@@ -139,7 +139,7 @@ $totalCert = round($result22['x'], 2);
 
             $q = mysqli_query($mysqli, "SELECT SUM(cantidad_certificada) AS x FROM certificaciones_partidas where  id_capitulo=$id_capitulo  and id_certificacion=$id_certificacion");
             $result = mysqli_fetch_assoc($q);
-            $cantidadCertificadaCapitulo = round($result['x'], 2);
+            $cantidadCertificadaCapitulo = round($result['x'] ?? 0, 2);
 
             if ($cantidadCertificadaCapitulo != 0) {
                 ?>
@@ -199,11 +199,11 @@ $totalCert = round($result22['x'], 2);
 
                             $q = mysqli_query($mysqli, "SELECT SUM(cantidad_certificada) AS x FROM certificaciones_partidas where id_presupuesto='$id_presupuesto' and id_partida_presupuesto='$id_partida_presupuesto' and id_certificacion<$id_certificacion");
                             $result = mysqli_fetch_assoc($q);
-                            $cantidad_cert_anterior = round($result['x'], 2);
+                            $cantidad_cert_anterior = round($result['x'] ?? 0, 2);
 
                             $q3 = mysqli_query($mysqli, "SELECT SUM(cantidad_certificada*precio_certificado) AS x FROM certificaciones_partidas where id_presupuesto='$id_presupuesto' and id_capitulo='$id_capitulo' and id_certificacion='$id_certificacion'");
                             $result3 = mysqli_fetch_assoc($q3);
-                            $total_capitulo = round($result3['x'], 2);
+                            $total_capitulo = round($result3['x'] ?? 0, 2);
 
                             if ($cantidad_certificada != 0) {
                                 ?>

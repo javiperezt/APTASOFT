@@ -87,12 +87,12 @@ include "../backend/presupuestos/presupuestoGetConsecutiveNumber.php";
                 // subtotal presupuesto
                 $q = mysqli_query($mysqli, "SELECT SUM(cantidad*subtotal) AS x FROM presupuestos_partidas where id_presupuesto='$id_presupuesto'");
                 $result = mysqli_fetch_assoc($q);
-                $subtotal = round($result['x'], 2);
+                $subtotal = round($result['x'] ?? 0, 2);
 
                 // total presupuesto
                 $q = mysqli_query($mysqli, "SELECT SUM(cantidad*total) AS x FROM presupuestos_partidas where id_presupuesto='$id_presupuesto'");
                 $result = mysqli_fetch_assoc($q);
-                $total = round($result['x'], 2);
+                $total = round($result['x'] ?? 0, 2);
 
                 $c1 = $mysqli->query("SELECT * FROM contactos where id=$id_contacto");
                 while ($row = $c1->fetch_assoc()) {

@@ -9,6 +9,23 @@ $columna = filter_input(INPUT_POST, 'columna', FILTER_SANITIZE_SPECIAL_CHARS);
 $fila = filter_input(INPUT_POST, 'fila', FILTER_SANITIZE_SPECIAL_CHARS);
 $valor = filter_input(INPUT_POST, 'valor', FILTER_SANITIZE_SPECIAL_CHARS);
 
-$sql = "UPDATE $tabla set $columna='$valor' where id=$fila";
-mysqli_query($mysqli, $sql);
+try {
+    // total_x_cantidad es un campo virtual calculado, no una columna real
+    // Se actualiza via calculateTotalxCantidad.php desde JavaScript
+    if ($columna == 'total_x_cantidad') {
+        // No hacemos nada aquí, el JavaScript llamará a calculateTotalxCantidad.php
+        exit;
+    }
+
+    $sql = "UPDATE $tabla set $columna='$valor' where id=$fila";
+    $result = mysqli_query($mysqli, $sql);
+
+    if (!$result) {
+        throw new \Exception("Error en la query: " . mysqli_error($mysqli));
+    }
+} catch (\Throwable $exception) {
+    \Sentry\captureException($exception);
+    // Re-lanzar la excepción si quieres que falle visiblemente
+    throw $exception;
+}
 

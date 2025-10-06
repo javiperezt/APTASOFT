@@ -3,44 +3,50 @@ include "../../conexion.php";
 
 $id_gasto_linea = filter_input(INPUT_POST, 'id_gasto_linea', FILTER_SANITIZE_SPECIAL_CHARS);
 
-$c0 = $mysqli->query("SELECT * FROM gastos_lineas where id=$id_gasto_linea");
-while ($row = $c0->fetch_assoc()) {
-    $id_presupuestos_partidas = $row['id_presupuestos_partidas'];
-    $id_capitulo_presupuesto = $row['id_capitulo_presupuesto'];
-    $id_iva = $row['id_iva'];
-    $id_gasto = $row['id_gasto'];
-    $concepto = $row['concepto'];
-    $descripcion = $row['descripcion'];
-    $cantidad = $row['cantidad'];
-    $descuento = $row['descuento'];
-    $precio = $row['precio'];
-    $subtotal = $row['subtotal'];
-    $total = $row['total'];
-}
+// Optimizado: Una sola query con JOIN para obtener todos los datos necesarios
+$c0 = $mysqli->query("
+    SELECT gl.*, i.iva
+    FROM gastos_lineas gl
+    LEFT JOIN iva i ON gl.id_iva = i.id
+    WHERE gl.id = $id_gasto_linea
+");
 
-$c1 = $mysqli->query("SELECT * FROM iva where id=$id_iva");
-while ($row = $c1->fetch_assoc()) {
-    $iva = $row['iva'];
-}
+$row = $c0->fetch_assoc();
+$id_gasto = $row['id_gasto'];
+$cantidad = $row['cantidad'];
+$descuento = $row['descuento'];
+$precio = $row['precio'];
+$iva = $row['iva'] ?? 0;
 
 // Calculo subtotal y total de la linea de gasto teniendo en cuenta el descuento
 $subtotalGasto = round($cantidad * $precio - ($cantidad * $precio * $descuento / 100), 2);
 $totalGasto = round($subtotalGasto + ($subtotalGasto * ($iva / 100)), 2);
 
-
-//actualizamos total y subtotal en la linea
-$sql = "UPDATE gastos_lineas set subtotal=$subtotalGasto,total=$totalGasto where id=$id_gasto_linea";
+// Optimizado: Una sola query para actualizar y calcular totales
+$sql = "UPDATE gastos_lineas SET subtotal=$subtotalGasto, total=$totalGasto WHERE id=$id_gasto_linea";
 mysqli_query($mysqli, $sql);
 
-//Calculamos totales y subtotales de todas las lineas de gasto (no es necesario pero pa tenerlo)
-$getSubtotalGastoGeneral = mysqli_query($mysqli, "SELECT SUM(subtotal) AS subtotalGastoGeneral FROM gastos_lineas where id_gasto='$id_gasto'");
-$result = mysqli_fetch_assoc($getSubtotalGastoGeneral);
-$subtotalGastoGeneral = $result['subtotalGastoGeneral'];
+// Optimizado: Una sola query para obtener todos los totales generales
+$result = $mysqli->query("
+    SELECT
+        SUM(subtotal) AS subtotalGastoGeneral,
+        SUM(total) AS totalGastoGeneral,
+        SUM(cantidad * precio) AS importeSinDescuento
+    FROM gastos_lineas
+    WHERE id_gasto='$id_gasto'
+")->fetch_assoc();
 
-$getTotalGastoGeneral = mysqli_query($mysqli, "SELECT SUM(total) AS totalGastoGeneral FROM gastos_lineas where id_gasto='$id_gasto'");
-$result = mysqli_fetch_assoc($getTotalGastoGeneral);
-$totalGastoGeneral = $result['totalGastoGeneral'];
+$subtotalGastoGeneral = $result['subtotalGastoGeneral'] ?? 0;
+$totalGastoGeneral = $result['totalGastoGeneral'] ?? 0;
+$importeSinDescuento = $result['importeSinDescuento'] ?? 0;
+$dto = $importeSinDescuento - $subtotalGastoGeneral;
 
-
-$arrayResult = ['subtotalGasto' => $subtotalGasto, 'totalGasto' => $totalGasto, 'subtotalGastoGeneral' => $subtotalGastoGeneral, 'totalGastoGeneral' => $totalGastoGeneral];
-echo json_encode($arrayResult);
+$arrayResult = [
+    'subtotalGasto' => (float)$subtotalGasto,
+    'totalGasto' => (float)$totalGasto,
+    'subtotalGastoGeneral' => (float)$subtotalGastoGeneral,
+    'totalGastoGeneral' => (float)$totalGastoGeneral,
+    'dto' => (float)$dto,
+    'importeSinDescuento' => (float)$importeSinDescuento
+];
+echo json_encode($arrayResult, JSON_NUMERIC_CHECK);

@@ -150,11 +150,11 @@ while ($row = $c023->fetch_assoc()) {
 
             $q = mysqli_query($mysqli, "SELECT SUM(cantidad_certificada) AS x FROM certificaciones_partidas where id_presupuesto='$id_presupuesto' and id_partida_presupuesto='$id_partida_presupuesto' and id_certificacion<$id_certificacion");
             $result = mysqli_fetch_assoc($q);
-            $cantidad_cert_anterior = round($result['x'], 2);
+            $cantidad_cert_anterior = round($result['x'] ?? 0, 2);
 
             $q2 = mysqli_query($mysqli, "SELECT SUM(cantidad_certificada) AS x2 FROM certificaciones_partidas where id_presupuesto='$id_presupuesto' and id_partida_presupuesto='$id_partida_presupuesto'");
             $result2 = mysqli_fetch_assoc($q2);
-            $cantidad_cert_anterior2 = round($result2['x2'], 2);
+            $cantidad_cert_anterior2 = round($result2['x2'] ?? 0, 2);
 
             $procentajeCert = round(($cantidad_cert_anterior2 / $cantidad * 100), 2);
 

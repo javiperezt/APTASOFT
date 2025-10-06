@@ -1,0 +1,441 @@
+---
+alwaysApply: true
+---
+# ESTRUCTURA DE BASE DE DATOS MYSQL
+
+Base de datos: **APTASOFT_05OCT**
+Motor: MySQL/MariaDB
+Acceso: Variable global `$mysqli` (definida en conexion.php)
+
+---
+
+## 🗂️ TABLAS PRINCIPALES Y SUS RELACIONES
+
+### JERARQUÍA DE DATOS
+
+```
+empresas (3 empresas: Apta, Sirecons, Epicas)
+    │
+    └── obras
+         ├── presupuestos
+         │    ├── presupuestos_partidas
+         │    │    └── presupuestos_subpartidas (mano obra, material, externos)
+         │    │
+         │    └── presupuestos_capitulos
+         │
+         ├── facturas
+         │    ├── facturas_partidas
+         │    ├── facturas_pagos
+         │    └── facturas_capitulos
+         │
+         ├── certificaciones
+         │    └── certificaciones_partidas
+         │
+         ├── gastos
+         │    ├── gastos_lineas
+         │    ├── gastos_pagos
+         │    └── gastos_archivos
+         │
+         ├── obras_archivos
+         └── obras_registro_partes (horas trabajadas)
+
+contactos (clientes y proveedores)
+empleados (trabajadores)
+```
+
+---
+
+## 📊 DETALLE DE TABLAS
+
+### 🏢 obras
+```sql
+Campos principales:
+- id (PK)
+- id_empresa (FK → empresas.id)
+- id_contacto (FK → contactos.id) -- Cliente
+- id_estado (FK → obras_estados.id) -- 1=Petición, 3=Presupuesto, 6=Ejecución, 7=Cerrada, 8=Perdida
+- id_canal_entrada (FK → obras_canales_entrada.id)
+- id_usuario_asignado (FK → empleados.id)
+- titulo
+- fecha_inicio
+- fecha_fin
+- localizacion
+- is_active (1=activa, 0=eliminada)
+
+IMPORTANTE: Cuando se elimina una obra (is_active=0), también se eliminan:
+- Todos sus presupuestos
+- Todas sus facturas
+- Todos sus gastos
+- Todas sus certificaciones
+```
+
+---
+
+### 📋 presupuestos
+```sql
+Estructura jerárquica:
+presupuestos → presupuestos_partidas → presupuestos_subpartidas
+
+Campos principales:
+- id (PK)
+- id_obra (FK → obras.id)
+- id_empresa (FK → empresas.id)
+- id_contacto (FK → contactos.id)
+- id_estado (FK → presupuestos_estados.id) -- 1=Pendiente, 2=Aceptado, 3=Rechazado
+- pref_ref (VARCHAR) -- Prefijo "E"
+- pref_ref_year (VARCHAR) -- Año "24", "25"
+- ref (VARCHAR) -- Número "0001", "0002"
+- fecha_inicio
+- is_active
+
+Código completo: pref_ref + pref_ref_year + ref
+Ejemplo: E240001 (Estimación año 24 número 0001)
+```
+
+### 📋 presupuestos_partidas
+```sql
+Campos:
+- id (PK)
+- id_presupuesto (FK → presupuestos.id)
+- id_capitulo (FK → capitulos.id)
+- partida (VARCHAR) -- Nombre de la partida
+- descripcion (TEXT)
+- cantidad (DECIMAL)
+- fecha_inicio
+- fecha_vencimiento
+```
+
+### 📋 presupuestos_subpartidas
+```sql
+Campos principales:
+- id (PK)
+- id_presupuesto_partidas (FK → presupuestos_partidas.id)
+- id_categoria (FK → categorias_subpartidas.id) ⭐ IMPORTANTE
+- id_contacto (FK → contactos.id) -- Proveedor
+- id_unidad (FK → unidades.id)
+- id_iva (FK → iva.id)
+- concepto
+- descripcion
+- cantidad
+- precio
+- descuento
+- subtotal
+- total
+- fecha_vencimiento
+- fecha_prox_intervencion
+- is_checked (BOOLEAN) -- Indica si está realizado
+
+⭐ CATEGORÍAS (id_categoria):
+1 = Mano de obra
+2 = Material
+3 = Trabajo externo (subcontratas)
+```
+
+---
+
+### 🧾 facturas
+```sql
+Campos:
+- id (PK)
+- id_obra (FK → obras.id)
+- id_empresa (FK → empresas.id)
+- id_contacto (FK → contactos.id) -- Cliente
+- id_estado (FK → facturas_estados.id) -- 1=Pendiente, 2=Pagada, 3=Parcialmente pagada
+- pref_ref (VARCHAR) -- Siempre "F"
+- pref_ref_year (VARCHAR)
+- ref (VARCHAR)
+- fecha_inicio
+- fecha_vencimiento
+- is_active
+
+Código completo: F240001, F240002...
+```
+
+### 🧾 facturas_partidas
+```sql
+Campos:
+- id (PK)
+- id_factura (FK → facturas.id)
+- id_capitulo (FK → capitulos.id)
+- id_unidad (FK → unidades.id)
+- partida
+- descripcion
+- cantidad
+- precio
+- subtotal
+
+```
+
+### 🧾 facturas_pagos
+```sql
+Campos:
+- id (PK)
+- id_factura (FK → facturas.id)
+- importe (DECIMAL)
+- fecha (DATE)
+- comentario (TEXT)
+- forma_pago (VARCHAR)
+- estado (ENUM: 'cobrado', 'pagado')
+
+```
+
+---
+
+### 💰 gastos
+```sql
+Campos:
+- id (PK)
+- id_obra (FK → obras.id)
+- id_empresa (FK → empresas.id)
+- id_contacto (FK → contactos.id) -- Proveedor
+- id_estado (FK → gastos_estados.id) -- 1=Pendiente, 2=Pagado
+- id_categoria (FK → gastos_categorias.id)
+- codigo (VARCHAR)
+- fecha_inicio
+- fecha_vencimiento
+- is_active
+
+CATEGORÍAS:
+1 = Gastos generales
+2 = Material
+3 = Profesionales (Externo)
+```
+
+### 💰 gastos_lineas
+```sql
+Campos:
+- id (PK)
+- id_gasto (FK → gastos.id)
+- id_cuenta_gasto (FK → cuentas_gasto.id) -- Plan contable
+- concepto
+- subtotal
+```
+
+### 💰 gastos_pagos
+```sql
+Campos:
+- id (PK)
+- id_gasto (FK → gastos.id)
+- importe
+- fecha
+- comentario
+- forma_pago
+- estado (ENUM: 'pagado', 'pendiente')
+```
+
+### 💰 gastos_archivos
+```sql
+Campos:
+- id (PK)
+- id_gasto (FK → gastos.id)
+- id_empleado (FK → empleados.id)
+- titulo (VARCHAR)
+- src (VARCHAR) -- Ruta: "id_gasto/nombre_archivo.ext"
+
+RUTA FÍSICA: docs/gastos/{id_gasto}/{archivo}
+```
+
+---
+
+### 📜 certificaciones
+```sql
+Campos:
+- id (PK)
+- id_obra (FK → obras.id)
+- id_estado (FK → certificaciones_estados.id) -- 1=Certificado, 2=Facturado
+- codigo
+- concepto
+- fecha
+- is_active
+```
+
+### 📜 certificaciones_partidas
+```sql
+Campos:
+- id (PK)
+- id_certificacion (FK → certificaciones.id)
+- id_presupuesto (FK → presupuestos.id)
+- id_capitulo (FK → capitulos.id)
+- id_partida_presupuesto (FK → presupuestos_partidas.id)
+- partida
+- descripcion
+- id_unidad
+- cantidad
+- precio
+- total
+- cantidad_certificada ⭐
+- precio_certificado ⭐
+
+```
+
+---
+
+### 👷 empleados
+```sql
+Campos:
+- id (PK)
+- id_rol (FK → roles)
+- id_empresa (FK → empresas.id)
+- nombre
+- correo
+- password (hash bcrypt)
+- tel
+- movil
+- nif
+- creation_date
+- is_active
+
+ROLES:
+1 = Administrador/Oficina
+2 = Trabajador/Técnico
+```
+
+### ⏱️ obras_registro_partes
+```sql
+Campos:
+- id (PK)
+- id_obra (FK → obras.id)
+- id_presupuesto (FK → presupuestos.id)
+- id_presupuestos_partidas (FK → presupuestos_partidas.id)
+- id_presupuestos_subpartidas (FK → presupuestos_subpartidas.id)
+- id_empleado (FK → empleados.id)
+- fecha (DATE)
+- horas (DECIMAL)
+- is_verified (BOOLEAN) -- 0=sin verificar, 1=verificado
+
+Los empleados registran las horas trabajadas en cada subpartida
+Permite calcular el coste real de mano de obra
+```
+
+---
+
+### 📇 contactos
+```sql
+Campos:
+- id (PK)
+- id_tipo_organizacion (FK → contactos_tipos_organizacion.id)
+- id_tipo_contacto (FK → contactos_tipos.id)
+- nombre
+- correo
+- tel
+- movil
+- direccion
+- poblacion
+- provincia
+- pais
+- cp
+- nif
+- created
+- is_active
+
+TIPOS DE CONTACTO:
+1 = Proveedor
+2 = Cliente
+
+TIPOS DE ORGANIZACIÓN:
+1 = Empresa
+2 = Autónomo
+```
+
+---
+
+### 🏢 empresas
+```sql
+Campos:
+- id (PK)
+- empresa (VARCHAR)
+- nombre_comercial
+- direccion
+- nif
+- poblacion
+- provincia
+- cp
+- tel
+- tel2
+- iban
+- src_logo
+
+EMPRESAS DEL SISTEMA:
+1 = Apta (APTA LA PLANA S.L.)
+2 = Sirecons (SIRECONS, S.L.)
+3 = Epicas (EPICAS CASTELLÓN, S.L.)
+```
+
+---
+
+## 📁 TABLAS AUXILIARES
+
+### capitulos
+Capítulos para organizar partidas de presupuestos/facturas
+```sql
+- id
+- capitulo (VARCHAR)
+```
+
+### unidades
+```sql
+- id
+- unidad (VARCHAR)
+- simbolo (VARCHAR)
+
+Valores: m², m³, l, kg, g, h, ud
+```
+
+### iva
+```sql
+- id
+- iva (VARCHAR)
+
+Valores: 21, 10, 4, 0, 15, 19, 5
+```
+
+### obras_estados
+```sql
+- id
+- estado
+- orden
+
+Estados:
+1 = Petición
+3 = Presupuesto
+6 = Ejecución
+7 = Cerrada
+8 = Perdida
+```
+
+### obras_canales_entrada
+```sql
+- id
+- canal
+
+Valores:
+1 = Form web
+2 = Llamada
+3 = Comercial / Franquiciado
+4 = Otros
+```
+
+### categorias_subpartidas
+```sql
+- id
+- codigo
+- categoria
+
+Valores:
+1 = MO (Mano de obra)
+2 = MAT (Material)
+3 = EXT (Trabajo externo)
+```
+
+### cuentas_gasto
+Plan contable de gastos (600-799)
+```sql
+- id
+- nombre
+- referencia
+- is_active
+
+Ejemplo: "Compras de mercaderías" (600)
+```
+
+---

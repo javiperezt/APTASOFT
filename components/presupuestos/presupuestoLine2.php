@@ -7,7 +7,7 @@
     <td><?= $subtotal; ?>€</td>
     <td><?= $total; ?>€</td>
     <td><span class="badge <?= $classEtiq; ?>"><?= $estado; ?></span></td>
-    <td><a href="presupuestoDetail2.php?id_presupuesto=<?= $id_presupuesto; ?>&id_obra=<?=$id_obra;?>"><i
+    <td><a href="presupuestoDetail.php?id_presupuesto=<?= $id_presupuesto; ?>&from=obra&from_obra_id=<?=$id_obra;?>"><i
                 class="bi bi-arrow-right fs-5"
                 style="color: #D2D5DA"></i></a>
     </td>

@@ -10,6 +10,9 @@ if (!$isLoggedIn) {
 
 $id_presupuestos_partidas = filter_input(INPUT_GET, 'id_presupuestos_partidas', FILTER_SANITIZE_SPECIAL_CHARS);
 
+$subtotalPartida = 0;
+$totalPartida = 0;
+
 $c0 = $mysqli->query("SELECT * FROM presupuestos_partidas where id=$id_presupuestos_partidas");
 while ($row = $c0->fetch_assoc()) {
     $id_partida = $row['id_partida'];

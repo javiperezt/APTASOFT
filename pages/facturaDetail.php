@@ -46,23 +46,23 @@ if ($id_estado) {
 
 $getSubtotalFactura = mysqli_query($mysqli, "SELECT SUM(subtotal) AS subtotalFactura FROM facturas_partidas where id_factura='$id_factura'");
 $result = mysqli_fetch_assoc($getSubtotalFactura);
-$subtotalFactura = round($result['subtotalFactura'], 2);
+$subtotalFactura = round($result['subtotalFactura'] ?? 0, 2);
 
 $getTotalFactura = mysqli_query($mysqli, "SELECT SUM(total) AS totalFactura FROM facturas_partidas where id_factura='$id_factura'");
 $result = mysqli_fetch_assoc($getTotalFactura);
-$totalFactura = round($result['totalFactura'], 2);
+$totalFactura = round($result['totalFactura'] ?? 0, 2);
 
 //para saber cantidad descontada
 $getImporteSinDescuento = mysqli_query($mysqli, "SELECT SUM(cantidad*precio) AS importeSinDescuento FROM facturas_partidas where id_factura='$id_factura'");
 $result = mysqli_fetch_assoc($getImporteSinDescuento);
-$importeSinDescuento = $result['importeSinDescuento'];
+$importeSinDescuento = $result['importeSinDescuento'] ?? 0;
 
 $dto = $importeSinDescuento - $subtotalFactura;
 
 
 $getTotalPagado = mysqli_query($mysqli, "SELECT SUM(importe) AS x FROM facturas_pagos where estado='pagado' and id_factura=$id_factura");
 $result = mysqli_fetch_assoc($getTotalPagado);
-$totalPagado = $result['x'];
+$totalPagado = $result['x'] ?? 0;
 ?>
 <html lang="es">
 <head>
@@ -342,9 +342,9 @@ while ($row = $c5->fetch_assoc()) {
     <div class="d-flex align-items-center justify-content-between mb-3">
         <p class="text-black fw-bold fs-5 ">Ingresos</p>
         <div id="pagos2" class="d-flex align-items-center gap-4">
-            <p class="text-success"><span class="text-black">Ingresado:</span> <?= round($totalPagado, 2); ?>€</p>
+            <p class="text-success"><span class="text-black">Ingresado:</span> <?= round($totalPagado ?? 0, 2); ?>€</p>
             <p class="text-danger"><span
-                        class="text-black">Pendiente:</span> <?= round($totalFactura - $totalPagado, 2); ?>€</p>
+                        class="text-black">Pendiente:</span> <?= round(($totalFactura ?? 0) - ($totalPagado ?? 0), 2); ?>€</p>
         </div>
     </div>
 
